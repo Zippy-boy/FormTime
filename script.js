@@ -31,7 +31,7 @@ function getDef() {
 // get country codes from contries.json file on local
 
 
-function getContries
+
 let contries = fetch('https://flagcdn.com/en/codes.json')
     .then((response) => response.json())
     .then((data) => {
