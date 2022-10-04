@@ -1,0 +1,77 @@
+* {
+    font-family: "M PLUS Rounded 1c",
+        Avenir Next,
+        Helvetica,
+        sans-serif;
+    color: white;
+}
+
+body {
+    background: #292d53;
+    text-align: center;
+    align-items: center;
+}
+
+#title {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    margin-top: 0rem;
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.wrapper {
+    color: white;
+    background: #3a6289;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    margin: 25px 1rem;
+}
+
+.w-small {
+    height: 200px;
+    width: 29%;
+}
+
+.w-large {
+    height: 300px;
+    width: 29%;
+}
+
+.w-layer-2 {
+    background: #3a6289;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    margin: 20px 20px;
+}
+
+h2 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+button {
+    background: #292d53;
+    border: none;
+    border-radius: 1.4rem;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.95);
+}
