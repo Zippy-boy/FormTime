@@ -26,27 +26,21 @@ function getDef() {
     };
     request.send();
 }
-
-
 // get country codes from contries.json file on local
 
+async function getCountryCodes() {
+    let contries = await fetch('https://flagcdn.com/en/codes.json')
+    let contriesJson = await contries.json()
+    return contriesJson
+}
+
+// get random country code
+async function getRandomCountryCode() {
+    let contriesJson = await getCountryCodes()
+    let randomCountryCode = contriesJson[Math.floor(Math.random() * contriesJson.length)]
+    document.getElementById("country").innerHTML = "<img src='https://flagcdn.com/128x96/" + randomCountryCode + ".png' alt='country flag' />"
+}
 
 
-let contries = fetch('https://flagcdn.com/en/codes.json')
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-        return data;
-    })
-    .catch((err) => {
-        console.log(err);
-    });
-
-console.log(contries);
-
-let randomCountry = contries[Math.floor(Math.random() * contries.length)];
-console.log(randomCountry);
-
-
-
+getRandomCountryCode()
 getWord();
