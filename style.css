@@ -63,7 +63,7 @@ body {
 
 .w-small {
   width: 80%;
-  height: 13rem;
+  height: 18rem;
   margin: 1rem;
   padding: 1rem;
 }
@@ -91,7 +91,7 @@ button {
   border-radius: 1.4rem;
   padding: 0.8rem;
   font-size: 1.2rem;
-  margin: 1rem;
+  margin: .1rem;
   cursor: pointer;
 }
 
