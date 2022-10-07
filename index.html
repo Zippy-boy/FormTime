@@ -16,46 +16,49 @@
 
 <body>
     <div class="main">
-        <h1 id="title">Form Time Ideas</h1>
-        <div class="flex-container">
+        <h1 id="title">...</h1>
+        <div class="main-flex-container">
 
-            <div class="wrapper w-small">
-                <h2>Word of the day</h2>
-                <p><span id="word-of-day"></span></p>
-                <div id="def">
-                    <button id="show-def" onclick="getDef()">Show definition</button>
+            <div class="left-container flex-container">
+                <div class="wrapper w-small">
+                    <h2>Word of the day</h2>
+                    <p><span id="word-of-day"></span></p>
+                    <div id="def">
+                        <button id="show-def" onclick="getDef()">Show
+                            definition</button>
+                    </div>
+                </div>
+                <div class="wrapper w-small">
+                    <h2>Famous quote</h2>
+                    <p>Quote: <span id="famous-quote"></span></p>
                 </div>
             </div>
 
-            <div class="wrapper w-large">
-                <h2>Where in the world</h2>
-                <p>Can you guess the country and its capital?</p>
-                <div id="country"></div>
-                <button id="show-country" onclick="showCountry()">Show countey</button>
+
+
+            <div class="middle-container flex-container">
+                <div class="wrapper w-large">
+                    <h2>Where in the world</h2>
+                    <p>Can you guess the country and its capital?</p>
+                    <div id="country"></div>
+                    <button id="show-country" onclick="showCountry()">Show
+                        countey</button>
+                </div>
             </div>
 
-            <div class="wrapper w-small">
-                <h2>Random Quote</h2>
-                <p>Quote: <span id="quote"></span></p>
+            <div class="right-container flex-container">
+                <div class="wrapper w-small">
+                    <h2>Random Quote</h2>
+                    <p>Quote: <span id="quote"></span></p>
+                </div>
+                <div class="wrapper w-small w-layer-2">
+                    <h2>Mental Maths</h2>
+                    <p>Question: <span id="maths-question"></span></p>
+                </div>
             </div>
-
-
-            <div class="wrapper w-small w-layer-2">
-                <h2>Mental Maths</h2>
-                <p>Question: <span id="maths-question"></span></p>
-            </div>
-
-            <div class="wrapper w-small w-layer-2">
-                <h2>Famous quote</h2>
-                <p>Quote: <span id="famous-quote"></span></p>
-            </div>
-
-            <div class="wrapper w-small w-layer-2">
-                <h2>Brainteaser</h2>
-                <p><span id="Brainteaser"></span></p>
-            </div>
-
         </div>
+
+    </div>
     </div>
 
     <script src="script.js"></script>

@@ -1,77 +1,99 @@
 * {
-    font-family: "M PLUS Rounded 1c",
-        Avenir Next,
-        Helvetica,
-        sans-serif;
-    color: white;
+  font-family: "M PLUS Rounded 1c",
+    Avenir
+      Next,
+    Helvetica,
+    sans-serif;
+  color: white;
 }
 
 body {
-    background: #292d53;
-    text-align: center;
-    align-items: center;
+  background: #292d53;
+  text-align: center;
+  align-items: center;
 }
 
 #title {
-    font-size: 5rem;
-    font-weight: bold;
-    margin-bottom: 0.2rem;
-    margin-top: 0rem;
-    text-align: center;
+  font-size: 5rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  margin-top: 0rem;
+  text-align: center;
 }
 
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+.main-flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 10px;
+  border-color: brown;
+  border-style: solid;
+}
+
+.left-container,
+.right-container,
+.middle-container {
+  border-radius: 10px;
+  border-color: brown;
+  border-style: solid;
+}
+
+.left-container,
+.right-container,
+.middle-container {
+  width: 28%;
+  height: 100%;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: left;
 }
 
 .wrapper {
-    color: white;
-    background: #3a6289;
-    border-radius: 1rem;
-    padding: 1.2rem;
-    margin: 25px 1rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #3a6289;
 }
 
 .w-small {
-    height: 200px;
-    width: 29%;
+  width: 80%;
+  height: 13rem;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: left;
 }
 
 .w-large {
-    height: 400px;
-    width: 29%;
-}
-
-.w-layer-2 {
-    background: #3a6289;
-    border-radius: 1rem;
-    padding: 1.2rem;
-    margin: 20px 20px;
+  width: 80%;
+  height: 20rem;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: left;
 }
 
 h2 {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
 }
 
 p {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 button {
-    background: #292d53;
-    border: none;
-    border-radius: 1.4rem;
-    padding: 0.8rem;
-    font-size: 1.2rem;
-    margin: 0.5rem;
-    cursor: pointer;
+  background: #292d53;
+  border: none;
+  border-radius: 1.4rem;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  margin: 0.5rem;
+  cursor: pointer;
 }
 
 button:active {
-    transform: scale(0.95);
+  transform: scale(
+    0.95
+  );
 }

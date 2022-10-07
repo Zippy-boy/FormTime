@@ -13,34 +13,32 @@ function getWord() {
     request.send();
 }
 
-function getDef() {
+function getDef(test=false) {
     var request = new XMLHttpRequest();
-    request.open('GET', 'https://api.dictionaryapi.dev/api/v2/entries/en/' + document.getElementById("word-of-day").innerHTML, true);
-    request.onload = function () {
-        if (request.status >= 200 && request.status < 400) {
-            var data = JSON.parse(request.responseText);
-            document.getElementById("def").innerHTML = data[0].meanings[0].definitions[0].definition;
-        } else {
-            console.log('error');
-        }
-    };
-    request.send();
+    try {
+        request.open('GET', 'https://api.dictionaryapi.dev/api/v2/entries/en/' + document.getElementById("word-of-day").innerHTML, true);
+        request.onload = function () {
+            if (request.status >= 200 && request.status < 400) {
+                var data = JSON.parse(request.responseText);
+                document.getElementById("def").innerHTML = data[0].meanings[0].definitions[0].definition;
+            } else {
+                console.log('error');
+            }
+        };
+        request.send();
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
-// get country codes from contries.json file on local
 
+// get country codes from contries.json file on local
 async function getCountryCodes() {
-    let contries = await fetch('https://flagcdn.com/en/codes.json')
-    let contriesJson = await contries.json()
-    return contriesJson
+    
 }
 
 // get random country code
-async function getRandomCountryCode() {
-    let contriesJson = await getCountryCodes()
-    let randomCountryCode = contriesJson[Math.floor(Math.random() * contriesJson.length)]
-    document.getElementById("country").innerHTML = "<img src='https://flagcdn.com/128x96/" + randomCountryCode + ".png' alt='country flag' />"
-}
 
 
-getRandomCountryCode()
+getCountryCodes();
 getWord();
