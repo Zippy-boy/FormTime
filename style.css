@@ -1,7 +1,6 @@
 * {
   font-family: "M PLUS Rounded 1c",
-    Avenir
-      Next,
+    Avenir Next,
     Helvetica,
     sans-serif;
   color: white;
@@ -9,9 +8,9 @@
 
 body {
   background: #292d53;
-  text-align: center;
-  align-items: center;
 }
+
+
 
 #title {
   font-size: 5rem;
@@ -39,21 +38,27 @@ body {
   border-style: solid;
 }
 
-.left-container,
-.right-container,
+.left-container, .right-container {
+  width: 25%;
+  margin-top: 1rem;
+  padding: .3rem;
+  background: #3b3f6b;
+}
+
 .middle-container {
-  width: 28%;
-  height: 100%;
-  margin: 1rem;
-  padding: 1rem;
-  text-align: left;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 36%;
+  margin-top: 1rem;
+  padding: .1rem;
+  background: #3b3f6b;
 }
 
 .wrapper {
-  justify-content: center;
-  align-items: center;
   border-radius: 10px;
   background-color: #3a6289;
+  text-align: center;
 }
 
 .w-small {
@@ -61,15 +66,13 @@ body {
   height: 13rem;
   margin: 1rem;
   padding: 1rem;
-  text-align: left;
 }
 
 .w-large {
   width: 80%;
-  height: 20rem;
+  height: 27rem;
   margin: 1rem;
   padding: 1rem;
-  text-align: left;
 }
 
 h2 {
@@ -88,12 +91,10 @@ button {
   border-radius: 1.4rem;
   padding: 0.8rem;
   font-size: 1.2rem;
-  margin: 0.5rem;
+  margin: 1rem;
   cursor: pointer;
 }
 
 button:active {
-  transform: scale(
-    0.95
-  );
+  transform: scale(0.95);
 }
