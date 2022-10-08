@@ -344,3 +344,37 @@ const newQuote = () => {
 }
 newQuote();
 
+// mental math generator
+const mentalMath = () => {
+    document.getElementById("answer").innerHTML = "";
+    let num1 = Math.floor(Math.random() * 100);
+    let num2 = Math.floor(Math.random() * 100);
+    let operator = Math.floor(Math.random() * 4);
+    let answer = 0;
+    let question = "";
+    if (operator == 0) {
+        answer = num1 + num2;
+        question = num1 + " + " + num2;
+    } else if (operator == 1) {
+        answer = num1 - num2;
+        question = num1 + " - " + num2;
+    } else if (operator == 2) {
+        answer = num1 * num2;
+        question = num1 + " * " + num2;
+    } else if (operator == 3) {
+        answer = num1 / num2;
+        question = num1 + " / " + num2;
+    }
+    document.getElementById("maths-question").innerHTML = question;
+    document.getElementById("maths-button").innerHTML = "Answer";
+    document.getElementById("maths-button").onclick = showAnswer;
+}
+
+mentalMath();
+
+const showAnswer = () => {
+    document.getElementById("answer").innerHTML = eval(document.getElementById("maths-question").innerHTML);
+    document.getElementById("maths-button").innerHTML = "New Question";
+    document.getElementById("maths-button").onclick = mentalMath; 
+}
+
