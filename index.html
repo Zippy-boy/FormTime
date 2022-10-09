@@ -29,14 +29,6 @@
                     </div>
                 </div>
                 <div class="wrapper w-small">
-                    <h2>Famous quote</h2>
-                    <p>Quote: <span id="famous-quote"></span></p>
-                </div>
-            </div>
-
-
-            <div class="middle-container flex-container">
-                <div class="wrapper w-large">
                     <h2>Where in the world</h2>
                     <p>Can you guess the country?</p>
                     <div id="country"></div>
@@ -48,6 +40,22 @@
             </div>
 
 
+            <div class="middle-container flex-container">
+                <div class="wrapper w-large">
+                    <h2>This day in history</h2>
+                    <h3>On this year: <span id="history-date"></span></h3>
+                    <p><span id="history"></span></p>
+                </div>
+
+                <div class="wrapper w-large">
+                    <h2>Name the element</h2>
+                    <p><span id="element-symbol" style="font-size: 4rem;"></span></p>
+                    <div id="element-awnser" style="font-size: 2rem;"></div>
+                    <button id="element-button" onclick="showElement()">Show element</button>
+                </div>
+            </div>
+
+
             <div class="right-container flex-container">
                 <div class="wrapper w-small">
                     <h2>Random Quote</h2>
@@ -55,12 +63,18 @@
                     <button onclick="newQuote()">New quote</button>
 
                 </div>
-                <div class="wrapper w-small w-layer-2">
+                <div class="wrapper w-small">
                     <h2>Mental Maths</h2>
                     <p>Question: <span id="maths-question"></span></p>
                     <div id="answer">
                     </div>
                     <button id="maths-button" onclick="showAnswer()">Awnser</button>
+                </div>
+                <div class="wrapper w-small">
+                    <h2>Joke of the day</h2>
+                    <p><span id="joke"></span></p>
+                    <div id="joke-awnser"></div>
+                    <div id="joke-button-div"></div>
                 </div>
             </div>
         </div>

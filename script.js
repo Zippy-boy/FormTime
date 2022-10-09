@@ -333,7 +333,7 @@ let country = countries[randomCountryCode];
 
 let countryFlag = "https://flagcdn.com/w320/" + randomCountryCode + ".png";
 
-document.getElementById("country").innerHTML = "<img id='flag' src='" + countryFlag + "' style='border-radius: 10px; height=30px;'/>";
+document.getElementById("country").innerHTML = "<img id='flag' src='" + countryFlag + "' style='border-radius: 10px; height=50px;'/>";
 
 const showCountry = () => {
     document.getElementById("countryShow").innerHTML = "<h2>" + country + "</h2>";
@@ -349,7 +349,7 @@ const mentalMath = () => {
     document.getElementById("answer").innerHTML = "";
     let num1 = Math.floor(Math.random() * 100);
     let num2 = Math.floor(Math.random() * 100);
-    let operator = Math.floor(Math.random() * 4);
+    let operator = Math.floor(Math.random() * 3);
     let answer = 0;
     let question = "";
     if (operator == 0) {
@@ -361,20 +361,86 @@ const mentalMath = () => {
     } else if (operator == 2) {
         answer = num1 * num2;
         question = num1 + " * " + num2;
-    } else if (operator == 3) {
-        answer = num1 / num2;
-        question = num1 + " / " + num2;
     }
     document.getElementById("maths-question").innerHTML = question;
     document.getElementById("maths-button").innerHTML = "Answer";
-    document.getElementById("maths-button").onclick = showAnswer;
+    document.getElementById("maths-button").setAttribute("onclick", "showAnswer()");
 }
 
 mentalMath();
 
 const showAnswer = () => {
-    document.getElementById("answer").innerHTML = eval(document.getElementById("maths-question").innerHTML);
+    document.getElementById("answer").innerHTML = "<span style='font-size: 20px; font-weight: bold;'>" + eval(document.getElementById('maths-question').innerHTML) + "</span>";
     document.getElementById("maths-button").innerHTML = "New Question";
-    document.getElementById("maths-button").onclick = mentalMath; 
+    document.getElementById("maths-button").onclick = mentalMath;
 }
 
+
+
+const newElement = () => {
+    fetch("./periods.json")
+        .then(response => response.json())
+        .then(data => {
+            let randomPeriod = data.elements[Math.floor(Math.random() * data.elements.length)];
+            let periodSymbol = randomPeriod.symbol;
+            let periodName = randomPeriod.name;
+            let periodAtomicNumber = randomPeriod.number;
+            let periodAtomicMass = randomPeriod.atomic_mass;
+
+            document.getElementById("element-symbol").innerHTML = periodSymbol;
+            document.getElementById("element-awnser").style.display = "none";
+            document.getElementById("element-awnser").innerHTML = "<h2>" + periodName + "</h2><p>Atomic Number: " + periodAtomicNumber + "</p>";
+        });
+
+    document.getElementById("element-button").innerHTML = "Show name";
+    document.getElementById("element-button").setAttribute("onclick", "showElement()");
+
+}
+
+newElement();
+
+const showElement = () => {
+    document.getElementById("element-awnser").style.display = "block";
+    document.getElementById("element-button").innerHTML = "New Element";
+    document.getElementById("element-button").onclick = newElement;
+}
+
+// Get information about this day in history from English Wikipedia
+
+let today = new Date();
+let month = today.getMonth() + 1;
+let day = today.getDate();
+
+fetch(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${day}`)
+    .then(response => response.json())
+    .then(data => {
+        let events = data.events;
+        let randomEvent = events[Math.floor(Math.random() * events.length)];
+        let eventYear = randomEvent.year;
+        let eventText = randomEvent.text;
+        document.getElementById("history").innerHTML = "<h2>" + eventYear + "</h2><p>" + eventText + "</p>";
+    });
+
+const newJoke = () => {
+    fetch("https://v2.jokeapi.dev/joke/Any")
+        .then(response => response.json())
+        .then(data => {
+            let joke = data.joke;
+            let setup = data.setup;
+            let delivery = data.delivery;
+            if (joke) {
+                document.getElementById("joke").innerHTML = "<p>" + joke + "</p>";
+            } else {
+                document.getElementById("joke").innerHTML = "<p>" + setup + "</p>";
+                document.getElementById("joke-awnser").style.display = "none";
+                document.getElementById("joke-awnser").innerHTML += "<p>" + delivery + "</p>";
+                document.getElementById("joke-button-div").innerHTML = "<button onclick='showJoke()'>Show joke</button>";
+            }
+        });
+}
+newJoke()
+
+const showJoke = () => {
+    document.getElementById("joke-awnser").style.display = "block";
+    document.getElementById("joke-button-div").innerHTML = "<button onclick='newJoke()'>New joke</button>";
+}
