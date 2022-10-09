@@ -328,15 +328,25 @@ const quotes = [
     "“The battles that count aren’t the ones for gold medals. The struggles within yourself—the invisible battles inside all of us—that’s where it’s at.” —Jesse Owens",
 ]
 
-let randomCountryCode = Object.keys(countries)[Math.floor(Math.random() * Object.keys(countries).length)];
-let country = countries[randomCountryCode];
+function newCountry() {
 
-let countryFlag = "https://flagcdn.com/w320/" + randomCountryCode + ".png";
+    let randomCountryCode = Object.keys(countries)[Math.floor(Math.random() * Object.keys(countries).length)];
+    let country = countries[randomCountryCode];
 
-document.getElementById("country").innerHTML = "<img id='flag' src='" + countryFlag + "' style='border-radius: 10px; height=50px;'/>";
+    let countryFlag = "https://flagcdn.com/w320/" + randomCountryCode + ".png";
+
+    document.getElementById("country-button").innerHTML = "Show country";
+    document.getElementById("country").innerHTML = "<img id='flag' src='" + countryFlag + "' style='border-radius: 10px; height=50px;'/>";
+    document.getElementById("countryShow").style.display = "None";
+    document.getElementById("countryShow").innerHTML = "<h2>" + country + "</h2>";
+    document.getElementById("country-button").setAttribute("onclick", "showCountry()");
+}
+newCountry();
 
 const showCountry = () => {
-    document.getElementById("countryShow").innerHTML = "<h2>" + country + "</h2>";
+    document.getElementById("countryShow").style.display = "block";
+    document.getElementById("country-button").innerHTML = "New flag";
+    document.getElementById("country-button").setAttribute("onclick", "newCountry()");
 }
 
 const newQuote = () => {
@@ -430,10 +440,11 @@ const newJoke = () => {
             let delivery = data.delivery;
             if (joke) {
                 document.getElementById("joke").innerHTML = "<p>" + joke + "</p>";
+                document.getElementById("joke-awnser").innerHTML = "";
             } else {
                 document.getElementById("joke").innerHTML = "<p>" + setup + "</p>";
                 document.getElementById("joke-awnser").style.display = "none";
-                document.getElementById("joke-awnser").innerHTML += "<p>" + delivery + "</p>";
+                document.getElementById("joke-awnser").innerHTML = "<p>" + delivery + "</p>";
                 document.getElementById("joke-button-div").innerHTML = "<button onclick='showJoke()'>Show joke</button>";
             }
         });

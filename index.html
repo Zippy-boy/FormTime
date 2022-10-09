@@ -16,7 +16,7 @@
 
 <body>
     <div class="main">
-        <h1 id="title">...</h1>
+        <h1 id="title"></h1>
         <div class="main-flex-container">
 
             <div class="left-container flex-container">
@@ -33,9 +33,9 @@
                     <p>Can you guess the country?</p>
                     <div id="country"></div>
                     <div id="countryShow">
-                        <button id="show-country" onclick="showCountry()">Show
-                            countey</button>
                     </div>
+                    <button id="country-button" onclick="showCountry()">Show
+                        countey</button>
                 </div>
             </div>
 
@@ -58,6 +58,13 @@
 
             <div class="right-container flex-container">
                 <div class="wrapper w-small">
+                    <h2>Joke of the day</h2>
+                    <p><span id="joke"></span></p>
+                    <div id="joke-awnser"></div>
+                    <div id="joke-button-div"></div>
+                </div>
+
+                <div class="wrapper w-small">
                     <h2>Random Quote</h2>
                     <p>Quote: <span id="quote"></span></p>
                     <button onclick="newQuote()">New quote</button>
@@ -69,12 +76,6 @@
                     <div id="answer">
                     </div>
                     <button id="maths-button" onclick="showAnswer()">Awnser</button>
-                </div>
-                <div class="wrapper w-small">
-                    <h2>Joke of the day</h2>
-                    <p><span id="joke"></span></p>
-                    <div id="joke-awnser"></div>
-                    <div id="joke-button-div"></div>
                 </div>
             </div>
         </div>
