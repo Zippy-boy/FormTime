@@ -432,10 +432,10 @@ fetch(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${d
     });
 
 // Clean https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?blacklistFlags=nsfw,religious,racist,sexist,explicit
-
+// Definatly not clean https://v2.jokeapi.dev/joke/Any
 
 const newJoke = () => {
-    fetch("https://v2.jokeapi.dev/joke/Any")
+    fetch("https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?blacklistFlags=nsfw,religious,racist,sexist,explicit")
         .then(response => response.json())
         .then(data => {
             let joke = data.joke;
