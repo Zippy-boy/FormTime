@@ -11,12 +11,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" type="text/css" />
-    <title>Document</title>
+    <title>Form time ideas</title>
 </head>
 
 <body>
     <div class="main">
-        <h1 id="title"></h1>
+        <h1 id="title">Form time ideas</h1>
         <div class="main-flex-container">
 
             <div class="left-container flex-container">
@@ -36,6 +36,12 @@
                     </div>
                     <button id="country-button" onclick="showCountry()">Show
                         countey</button>
+                </div>
+                <div class="wrapper w-small">
+                    <h2>Random Quote</h2>
+                    <p>Quote: <span id="quote"></span></p>
+                    <button onclick="newQuote()">New quote</button>
+
                 </div>
             </div>
 
@@ -65,11 +71,11 @@
                 </div>
 
                 <div class="wrapper w-small">
-                    <h2>Random Quote</h2>
-                    <p>Quote: <span id="quote"></span></p>
-                    <button onclick="newQuote()">New quote</button>
-
+                    <h2>Did you know?</h2>
+                    <p id="did-you-know"></p>
+                    <button id="DYK-button" onclick="newFact()">New fact</button>
                 </div>
+                                
                 <div class="wrapper w-small">
                     <h2>Mental Maths</h2>
                     <p>Question: <span id="maths-question"></span></p>

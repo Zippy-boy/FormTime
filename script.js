@@ -431,6 +431,9 @@ fetch(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${d
         document.getElementById("history").innerHTML = "<h2>" + eventYear + "</h2><p>" + eventText + "</p>";
     });
 
+// Clean https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?blacklistFlags=nsfw,religious,racist,sexist,explicit
+
+
 const newJoke = () => {
     fetch("https://v2.jokeapi.dev/joke/Any")
         .then(response => response.json())
@@ -455,3 +458,19 @@ const showJoke = () => {
     document.getElementById("joke-awnser").style.display = "block";
     document.getElementById("joke-button-div").innerHTML = "<button onclick='newJoke()'>New joke</button>";
 }
+
+const newFact = () => {
+    fetch("https://api.api-ninjas.com/v1/facts?limit=1"
+        , {
+            headers: {
+                "X-Api-Key": "GLq8DfJ4HXqlOhYZ2whk0w==OHvq0XDH9LC7xNts"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            let fact = data[0].fact;
+            document.getElementById("did-you-know").innerHTML = fact;
+        });
+}
+
+newFact();
