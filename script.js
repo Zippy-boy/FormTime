@@ -442,6 +442,7 @@ const newJoke = () => {
             let setup = data.setup;
             let delivery = data.delivery;
             if (joke) {
+                document.getElementById("joke-button-div").innerHTML = "<button onclick='newJoke()'>New joke</button>";
                 document.getElementById("joke").innerHTML = "<p>" + joke + "</p>";
                 document.getElementById("joke-awnser").innerHTML = "";
             } else {
