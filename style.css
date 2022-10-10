@@ -24,7 +24,6 @@ body {
 .main-flex-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   border-radius: 10px;
   /* border-color: brown;
