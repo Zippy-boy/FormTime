@@ -472,5 +472,20 @@ const newFact = () => {
             document.getElementById("did-you-know").innerHTML = fact;
         });
 }
-
 newFact();
+
+fetch("https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=khcwemcse29tu1ikh1msnzno74ykj7mkmcvc8xnbr77r8d1ef")
+    .then(response => response.json())
+    .then(data => {
+        let word = data.word;
+        let definition = data.definitions[0].text;
+        document.getElementById("word-of-day").innerHTML = word
+        document.getElementById("def").style.display = "none";
+        document.getElementById("def").innerHTML = definition;
+    });
+
+const getDef = () => {
+    document.getElementById("def").style.display = "block";
+    document.getElementById("def-button-div").innerHTML = ""
+}
+// khcwemcse29tu1ikh1msnzno74ykj7mkmcvc8xnbr77r8d1ef
