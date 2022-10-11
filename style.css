@@ -95,6 +95,13 @@ p {
   margin-top: 20px;
 }
 
+#flag {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 button {
   background: #292d53;
   border: none;

@@ -336,7 +336,7 @@ function newCountry() {
     let countryFlag = "https://flagcdn.com/w320/" + randomCountryCode + ".png";
 
     document.getElementById("country-button").innerHTML = "Show country";
-    document.getElementById("country").innerHTML = "<img id='flag' src='" + countryFlag + "' style='border-radius: 10px; height=50px;'/>";
+    document.getElementById("country").innerHTML = "<img id='flag' src='" + countryFlag + "'/>";
     document.getElementById("countryShow").style.display = "None";
     document.getElementById("countryShow").innerHTML = "<h2>" + country + "</h2>";
     document.getElementById("country-button").setAttribute("onclick", "showCountry()");
