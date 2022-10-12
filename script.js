@@ -34,7 +34,7 @@ function newCountry() {
             document.getElementById("countryShow").innerHTML = "<h2>" + country + "</h2>";
             document.getElementById("country-button").setAttribute("onclick", "showCountry()");
         });
-    }
+}
 
 newCountry();
 
@@ -186,3 +186,27 @@ const getDef = () => {
     document.getElementById("def-button-div").innerHTML = ""
 }
 // khcwemcse29tu1ikh1msnzno74ykj7mkmcvc8xnbr77r8d1ef
+const newBrainteaser = () => {
+    fetch("./brainTeasers.json")
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("brainteaser-button").innerHTML = "Show answer";
+            document.getElementById("brainteaser-button").setAttribute("onclick", "showAwnser()");
+
+            let randomTeaser = data[Math.floor(Math.random() * data["length"])];
+            console.log(randomTeaser);
+            let teaser = randomTeaser["Qestion"];
+            let answer = randomTeaser["Awnser"];
+
+            document.getElementById("brainteaser-question").innerHTML = teaser;
+            document.getElementById("brainteaser-awser").style.display = "none";
+            document.getElementById("brainteaser-awser").innerHTML = "A: " + answer;
+        });
+}
+newBrainteaser();
+
+const showAwnser = () => {
+    document.getElementById("brainteaser-awser").style.display = "block";
+    document.getElementById("brainteaser-button").innerHTML = "New Brainteaser";
+    document.getElementById("brainteaser-button").onclick = newBrainteaser;
+}
