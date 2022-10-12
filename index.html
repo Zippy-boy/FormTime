@@ -10,8 +10,8 @@
         rel="stylesheet" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="icon" href="logo.png" type="image/icon type">
+    <link rel="stylesheet" href="assets/style.css" type="text/css" />
+    <link rel="icon" href="assets/logo.png" type="image/icon type">
     <title>From time ideas</title>
 </head>
 
@@ -30,15 +30,15 @@
                         definition</button>
                     </div>
                 </div>
+
                 <div class="wrapper w-small">
-                    <h2>Where in the world</h2>
-                    <p>Can you guess the country?</p>
-                    <div id="country"></div>
-                    <div id="countryShow">
-                    </div>
-                    <button id="country-button" onclick="showCountry()">Show
-                        countey</button>
+                    <h2>Brainteaser</h2>
+                    <p><span id="brainteaser-question"></span></p>
+                    <p><span id="brainteaser-awser"></span></p>
+                    <button id="brainteaser-button" onclick="showAwnser()">Show awnser</button>
+                    
                 </div>
+               
                 <div class="wrapper w-small">
                     <h2>Random Quote</h2>
                     <p>Quote: <span id="quote" style="font-size: 1.4rem;"></span></p>
@@ -56,19 +56,22 @@
                 </div>
 
                 <div class="wrapper w-large">
+                    <h2>Where in the world</h2>
+                    <p>Can you guess the country?</p>
+                    <div id="country"></div>
+                    <div id="countryShow">
+                    </div>
+                    <button id="country-button" onclick="showCountry()">Show
+                        countey</button>
+                </div>
+
+                <div class="wrapper w-large">
                     <h2>Name the element</h2>
                     <p><span id="element-symbol" style="font-size: 4rem;"></span></p>
                     <div id="element-awnser" style="font-size: 2rem;"></div>
                     <button id="element-button" onclick="showElement()">Show element</button>
                 </div>
 
-                <div class="wrapper w-large">
-                    <h2>Brainteaser</h2>
-                    <p><span id="brainteaser-question"></span></p>
-                    <p><span id="brainteaser-awser"></span></p>
-                    <button id="brainteaser-button" onclick="showAwnser()">Show awnser</button>
-                    
-                </div>
 
             </div>
 
@@ -101,7 +104,7 @@
     </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 
 </html>

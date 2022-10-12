@@ -21,7 +21,7 @@ const quotes = [
 ]
 
 function newCountry() {
-    fetch("./contries.json")
+    fetch("./assets/json/contries.json")
         .then(response => response.json())
         .then(data => {
             let randomCountryCode = Object.keys(data)[Math.floor(Math.random() * Object.keys(data).length)];
@@ -83,7 +83,7 @@ const showAnswer = () => {
 
 
 const newElement = () => {
-    fetch("./periods.json")
+    fetch("./assets/json/periods.json")
         .then(response => response.json())
         .then(data => {
             let randomPeriod = data.elements[Math.floor(Math.random() * data.elements.length)];
@@ -187,7 +187,7 @@ const getDef = () => {
 }
 // khcwemcse29tu1ikh1msnzno74ykj7mkmcvc8xnbr77r8d1ef
 const newBrainteaser = () => {
-    fetch("./brainTeasers.json")
+    fetch("./assets/json/brainTeasers.json")
         .then(response => response.json())
         .then(data => {
             document.getElementById("brainteaser-button").innerHTML = "Show answer";
