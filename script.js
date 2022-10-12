@@ -25,7 +25,7 @@ function newCountry() {
         .then(response => response.json())
         .then(data => {
             let randomCountryCode = Object.keys(data)[Math.floor(Math.random() * Object.keys(data).length)];
-            let country = countries[randomCountryCode];
+            let country = data[randomCountryCode];
             let countryFlag = "https://flagcdn.com/w320/" + randomCountryCode + ".png";
 
             document.getElementById("country-button").innerHTML = "Show country";
