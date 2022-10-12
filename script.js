@@ -123,7 +123,8 @@ fetch(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${d
         let randomEvent = events[Math.floor(Math.random() * events.length)];
         let eventYear = randomEvent.year;
         let eventText = randomEvent.text;
-        document.getElementById("history").innerHTML = "<h2>" + eventYear + "</h2><p>" + eventText + "</p>";
+        document.getElementById("history-date").innerHTML = eventYear;
+        document.getElementById("history").innerHTML = "<p>" + eventText + "</p>";
     });
 
 // Clean https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?blacklistFlags=nsfw,religious,racist,sexist,explicit
