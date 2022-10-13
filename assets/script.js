@@ -157,6 +157,7 @@ const showJoke = () => {
 }
 
 const newFact = () => {
+    document.getElementById("did-you-know").innerHTML = "Loading...";
     fetch("https://api.api-ninjas.com/v1/facts?limit=1"
         , {
             headers: {
