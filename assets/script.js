@@ -26,7 +26,7 @@ function newCountry() {
         .then(data => {
             let randomCountryCode = Object.keys(data)[Math.floor(Math.random() * Object.keys(data).length)];
             let country = data[randomCountryCode];
-            let countryFlag = "https://flagcdn.com/w320/" + randomCountryCode + ".png";
+            let countryFlag = "https://flagcdn.com/w2560/" + randomCountryCode + ".png";
 
             document.getElementById("country-button").innerHTML = "Show country";
             document.getElementById("country").innerHTML = "<img id='flag' src='" + countryFlag + "'/>";
@@ -220,7 +220,7 @@ fetch("./assets/words.txt")
         let words = data.split("\n");
         let randomWord = words[Math.floor(Math.random() * words.length)];
         let scrammbledWord = (randomWord.split("").sort(() => Math.random() - 0.5).join("")).trim().split(" ").join("");
-        
+
 
         document.getElementById("scramble-word").innerHTML = scrammbledWord;
         document.getElementById("scramble-awnser").innerHTML = randomWord;
