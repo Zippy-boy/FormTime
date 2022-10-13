@@ -211,3 +211,17 @@ const showAwnser = () => {
     document.getElementById("brainteaser-button").innerHTML = "New Brainteaser";
     document.getElementById("brainteaser-button").onclick = newBrainteaser;
 }
+
+
+
+fetch("./assets/words.txt")
+    .then(response => response.text())
+    .then(data => {
+        let words = data.split("\n");
+        let randomWord = words[Math.floor(Math.random() * words.length)];
+        let scrammbledWord = (randomWord.split("").sort(() => Math.random() - 0.5).join("")).trim().split(" ").join("");
+        
+
+        document.getElementById("scramble-word").innerHTML = scrammbledWord;
+        document.getElementById("scramble-awnser").innerHTML = randomWord;
+    });
