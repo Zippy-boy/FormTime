@@ -195,7 +195,6 @@ const newBrainteaser = () => {
             document.getElementById("brainteaser-button").setAttribute("onclick", "showAwnser()");
 
             let randomTeaser = data[Math.floor(Math.random() * data["length"])];
-            console.log(randomTeaser);
             let teaser = randomTeaser["Qestion"];
             let answer = randomTeaser["Awnser"];
 
@@ -213,15 +212,33 @@ const showAwnser = () => {
 }
 
 
+const newScamble = () => {
+    document.getElementById("scramble-button").innerHTML = "Show answer";
+    document.getElementById("scramble-button").setAttribute("onclick", "showScramble()");
 
-fetch("./assets/words.txt")
-    .then(response => response.text())
-    .then(data => {
-        let words = data.split("\n");
-        let randomWord = words[Math.floor(Math.random() * words.length)];
-        let scrammbledWord = (randomWord.split("").sort(() => Math.random() - 0.5).join("")).trim().split(" ").join("");
+    fetch("./assets/words.txt")
+        .then(response => response.text())
+        .then(data => {
+            let words = data.split("\n");
+            let randomWord = words[Math.floor(Math.random() * words.length)].toLowerCase();
+            let scrammbledWord = (randomWord.split("").sort(() => Math.random() - 0.5).join(""));
+            // get rid of all spaces in scrammbledWord
+            scrammbledWord = scrammbledWord.replace(/\s/g, '');
 
 
-        document.getElementById("scramble-word").innerHTML = scrammbledWord;
-        document.getElementById("scramble-awnser").innerHTML = randomWord;
-    });
+            document.getElementById("scramble-word").innerHTML = scrammbledWord;
+            document.getElementById("scramble-awnser").style.display = "none";
+            document.getElementById("scramble-awnser").innerHTML = randomWord;
+        });
+}
+newScamble();
+
+const showScramble = () => {
+    document.getElementById("scramble-awnser").style.display = "block";
+    document.getElementById("scramble-button").innerHTML = "New word";
+    document.getElementById("scramble-button").onclick = newScamble;
+}
+
+
+// get top 3 news stories
+fetch("https://newsapi.org/v2/top-headlines?country=uk&apiKey=dcacaf96d9f94413996799f326fdadfe")
