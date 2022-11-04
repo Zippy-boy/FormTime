@@ -248,4 +248,4 @@ fetch("https://newsapi.org/v2/top-headlines?country=uk&apiKey=dcacaf96d9f9441399
 // delay by 10 hours (36000000)
 setTimeout(() => {
     location.reload();
-}, 36000000);\
+}, 36000000);
