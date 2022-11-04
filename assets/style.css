@@ -1,17 +1,22 @@
+:root {
+  --bg-color: #292d53;
+  --text-color: #fff;
+  --wrapper-color: #3a6289;
+  --button-color: #292d53;
+}
+
 * {
   font-family: "M PLUS Rounded 1c",
     Avenir Next,
     Helvetica,
     sans-serif;
-  color: white;
+  color: var(--text-color);
   font-size: 0.7em;
 }
 
 body {
-  background: #292d53;
+  background: var(--bg-color);
 }
-
-
 
 #title {
   font-size: 5rem;
@@ -57,8 +62,8 @@ body {
 }
 
 .wrapper {
-  border-radius: 10px;
-  background-color: #3a6289;
+  border-radius: 20px;
+  background-color: var(--wrapper-color);
   text-align: center;
   display: block;
   overflow: auto;
@@ -99,6 +104,10 @@ p {
   margin-top: 20px;
 }
 
+#country {
+  padding-bottom: 10px;
+}
+
 #flag {
   border-radius: 10px;
   width: 50%;
@@ -106,7 +115,7 @@ p {
 }
 
 button {
-  background: #292d53;
+  background: var(--button-color);
   border: none;
   border-radius: 1.4rem;
   padding: 0.8rem;
