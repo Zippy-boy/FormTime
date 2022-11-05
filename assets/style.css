@@ -21,8 +21,15 @@
 
 body {
   background-color: var(--bg-color);
-  /* make background-color lighter at the bottom */
-  
+  background: linear-gradient(
+    180deg,
+    var(--bg-color) 40%,
+    var(--bg-color) 80%,
+    #0b1a4a 105%
+  );
+  margin: 0;
+  padding: 0;
+  height: 100vh;
 }
 
 #title {
@@ -72,10 +79,11 @@ body {
   border-radius: 20px;
   background-color: var(--wrapper-color);
   /* make it look like its floating */
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 1);
   text-align: center;
   display: block;
   overflow: auto;
+  margin: 0.6rem;
 }
 
 .w-small {
@@ -131,10 +139,11 @@ button {
   border: none;
   border-radius: 1.4rem;
   padding: 0.8rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin: .1rem;
   cursor: pointer;
   color: var(--button-text-color);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 1);
 }
 
 button:active {
