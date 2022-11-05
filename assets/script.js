@@ -114,6 +114,7 @@ const showElement = () => {
 
 let today = new Date();
 let month = today.getMonth() + 1;
+console.log(month);
 let day = today.getDate();
 
 fetch(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${day}`)
@@ -179,7 +180,7 @@ fetch("https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=khcwemcse29tu1
         let definition = data.definitions[0].text;
         document.getElementById("word-of-day").innerHTML = word
         document.getElementById("def").style.display = "none";
-        document.getElementById("def").innerHTML = definition;
+        document.getElementById("def").innerHTML = "<p>" + definition + "</p>";
     });
 
 const getDef = () => {

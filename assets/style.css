@@ -23,7 +23,7 @@ body {
   background-color: var(--bg-color);
   background: linear-gradient(
     180deg,
-    var(--bg-color) 40%,
+    var(--bg-color) 35%,
     var(--bg-color) 80%,
     #0b1a4a 105%
   );
@@ -62,8 +62,15 @@ body {
   display: flex;
   flex-direction: column;
   width: 25%;
-  margin-top: 1rem;
-  margin: 4rem
+  padding-top: 10px;
+}
+
+.left-container {
+  margin: 2.8rem 2.8rem 2.8rem 0;
+}
+
+.right-container {
+  margin: 2.8rem 0 2.8rem 2.8rem;
 }
 
 .middle-container {
@@ -79,21 +86,21 @@ body {
   border-radius: 20px;
   background-color: var(--wrapper-color);
   /* make it look like its floating */
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 1);
+  box-shadow: #000 0 0 40px;
   text-align: center;
   display: block;
   overflow: auto;
-  margin: 0.6rem;
+  margin: 1.2rem;
 }
 
 .w-small {
-  margin-top: 1rem;
+  margin-top: 1.3rem;
   padding: 1rem;
 }
 
 .w-large {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 1.3rem;
   padding: 1rem;
 }
 
@@ -132,6 +139,8 @@ p {
   border-radius: 10px;
   width: 50%;
   height: 100%;
+  border-color: var(--acent-color-3);
+  border-style: solid;
 }
 
 button {
