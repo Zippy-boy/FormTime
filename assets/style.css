@@ -1,8 +1,13 @@
 :root {
-  --bg-color: #292d53;
+  --bg-color: #050b29;
+  --body-color: #c2cefc;
   --text-color: #fff;
-  --wrapper-color: #3a6289;
-  --button-color: #292d53;
+  --button-text-color: #808fca;
+  --wrapper-color: #273266;
+  --button-color: #0d1330;
+  --acent-color-1: #6849ff;
+  --acent-color-2: #43d4c3;
+  --acent-color-3: #fc4972;
 }
 
 * {
@@ -15,7 +20,9 @@
 }
 
 body {
-  background: var(--bg-color);
+  background-color: var(--bg-color);
+  /* make background-color lighter at the bottom */
+  
 }
 
 #title {
@@ -64,6 +71,8 @@ body {
 .wrapper {
   border-radius: 20px;
   background-color: var(--wrapper-color);
+  /* make it look like its floating */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
   text-align: center;
   display: block;
   overflow: auto;
@@ -82,6 +91,7 @@ body {
 
 span {
   font-size: 1.8rem;
+  color: var(--body-color);
 }
 
 h2 {
@@ -94,14 +104,16 @@ h3 {
   font-weight: bold;
   margin-bottom: 0.5rem;
   font-size: 1.8rem;
+  color: var(--body-color);
 }
 
 p {
   font-size: 1.8rem;
+  color: var(--body-color);
 }
 
 #maths-button {
-  margin-top: 20px;
+  margin-top: 3px;
 }
 
 #country {
@@ -122,6 +134,7 @@ button {
   font-size: 1.2rem;
   margin: .1rem;
   cursor: pointer;
+  color: var(--button-text-color);
 }
 
 button:active {
