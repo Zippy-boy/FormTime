@@ -242,12 +242,13 @@ const showScramble = () => {
 
 
 
-// get top 3 news stories
-fetch("https://newsapi.org/v2/top-headlines?country=uk&apiKey=dcacaf96d9f94413996799f326fdadfe")
-
-// make every widget element have a random box shadow
-
-
+// // get top 3 news stories
+// fetch("https://newsapi.org/v2/top-headlines?country=uk&apiKey=dcacaf96d9f94413996799f326fdadfe")
+//     .then(response => response.json())
+//     .then(data => {
+//         let news = data.articles;
+//         console.log(news);
+//     });
 
 // delay by 10 hours (36000000)
 setTimeout(() => {
