@@ -20,7 +20,7 @@
 }
 
 body {
-  background-color: var(--bg-color);
+  /* make lighter version of --bg-color at the bottom of the page */
   background: linear-gradient(
     180deg,
     var(--bg-color) 35%,
@@ -29,7 +29,7 @@ body {
   );
   margin: 0;
   padding: 0;
-  height: 100vh;
+
 }
 
 #title {
