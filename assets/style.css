@@ -20,16 +20,16 @@
 }
 
 body {
-  background-color: var(--bg-color);
+  /* make lighter version of --bg-color at the bottom of the page */
   background: linear-gradient(
     180deg,
-    var(--bg-color) 35%,
-    var(--bg-color) 80%,
-    #0b1a4a 105%
+    var(--bg-color) 40%,
+    var(--bg-color) 60%,
+    #0b1a4a 90%
   );
   margin: 0;
   padding: 0;
-  height: 100vh;
+
 }
 
 #title {
@@ -83,6 +83,7 @@ body {
 }
 
 .wrapper {
+  /* add a banner to the top to highlight the title */
   border-radius: 20px;
   background-color: var(--wrapper-color);
   /* make it look like its floating */
@@ -141,6 +142,7 @@ p {
   height: 100%;
   border-color: var(--acent-color-3);
   border-style: solid;
+  box-shadow: 0 0 10px var(--acent-color-3);
 }
 
 button {
@@ -152,7 +154,7 @@ button {
   margin: .1rem;
   cursor: pointer;
   color: var(--button-text-color);
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 1);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 1);
 }
 
 button:active {
