@@ -242,13 +242,18 @@ const showScramble = () => {
 
 
 
-// // get top 3 news stories
-// fetch("https://newsapi.org/v2/top-headlines?country=uk&apiKey=dcacaf96d9f94413996799f326fdadfe")
-//     .then(response => response.json())
-//     .then(data => {
-//         let news = data.articles;
-//         console.log(news);
-//     });
+// get top 3 news stories
+fetch("https://newsapi.org/v2/top-headlines?country=gb&apiKey=dcacaf96d9f94413996799f326fdadfe")
+    .then(response => response.json())
+    .then(data => {
+        let articles = data.articles;
+        let top3 = articles.slice(0, 3);
+        let news = "";
+        top3.forEach(article => {
+            news += "<a href='" + article.url + "' target='_blank'><h3>" + article.title + "</h3></a>";
+        });
+        document.getElementById("news").innerHTML = news;
+    });
 
 // delay by 10 hours (36000000)
 setTimeout(() => {
