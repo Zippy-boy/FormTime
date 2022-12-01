@@ -16,7 +16,7 @@
     Helvetica,
     sans-serif;
   color: var(--text-color);
-  font-size: 0.47em;
+  font-size: 0.5em;
 }
 
 body {
@@ -29,7 +29,7 @@ body {
   );
   margin: 0;
   padding: 0;
-
+  height: min-content(100vh, 100%);
 }
 
 #title {
