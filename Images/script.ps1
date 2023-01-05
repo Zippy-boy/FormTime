@@ -320,6 +320,7 @@ $s.Speak("You starting to believe me now?")
 
 $s.Speak("So if you know anything about public IP's, then you know they are pretty usefull for us. If not, now you do :)... $ip. Nice!")
 
+$s.Speak(". `n . `n . You have a lot of mail in $email. I am sure you dont want me to send it to your friends...")
 
 $s.Speak("Want to see something cool?")
 
