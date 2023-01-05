@@ -329,7 +329,7 @@ $Image = Gen-Image -Networks $Networks
 Set-WallPaper -Image $Image -Style "Fit"
 
 
-$s.Speak("Have a look at your desktop, il be waiting here...")
+$s.Speak("Have a look at your desktop, i will be waiting here...`n Until next time - $full_name")
 
 
 reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
