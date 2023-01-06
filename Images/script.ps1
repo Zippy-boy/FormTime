@@ -121,7 +121,7 @@ function Gen-Image {
     $graphics.Dispose() 
     $bmp.Save($filename) 
 
-    Invoke-Item $filename
+    # Invoke-Item $filename
 
 
     # Copy the image to the desktop
@@ -340,6 +340,8 @@ Remove-Item (Get-PSreadlineOption).HistorySavePath -ErrorAction SilentlyContinue
 
 Add-Type -AssemblyName System.Windows.Forms
 $caps = [System.Windows.Forms.Control]::IsKeyLocked('CapsLock')
+
+Invoke-Item "C:\Users\Public\Documents\test.png"
 
 #If true, toggle CapsLock key, to ensure that the script doesn't fail
 if ($caps -eq $true) {
