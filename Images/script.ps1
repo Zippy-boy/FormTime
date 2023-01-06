@@ -228,7 +228,7 @@ function Get-Days_Set {
     return $days
 }
 
-# $s = New-Object -ComObject SAPI.SpVoice
+$s = New-Object -ComObject SAPI.SpVoice
 
 $s.Rate = -1
 $days = Get-Days_Set
