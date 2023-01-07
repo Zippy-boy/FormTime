@@ -349,7 +349,6 @@ $wshell.Popup("Hello $full_name...", 0, "Error", 32 + 4)
 
 
 $s.Speak("Hello $full_name.")
-# $s.Speak("Have you lurned to not piss off hackers yet?")
 
 if ($ram -gt 63) {
     $s.Speak("You have $ram gigabytes of ram. Really? You dont need that much for watching *THINGS* on the internet $full_name. But a computer this good with no security...")
