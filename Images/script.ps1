@@ -366,6 +366,14 @@ else {
     $s1.Speak("You have $ram gigabytes of ram. Poor you :(. You wont need this pc then.")
 }
 
+$pornSites = @("pornhub", "xvideos", "redtube", "youporn", "xhamster")
+foreach ($site in $pornSites){
+if ($E_his -match $site -or $E_Boo -match $site -or $C_his -match $site -or $C_boo -match $site -or $F_his -match $site) {
+$porn = $true
+break
+}
+}
+
 
 # if pass is bigger or less then 
 if ($pass -gt 6) {
@@ -383,6 +391,11 @@ else {
 }
 [console]::beep(1000,500), [console]::beep(2000,200)
 $s2.Speak("Nice to see your bwowSer history is somewhat clean")
+
+if ($porn) {
+$s2.speak("Eww, nevermid, wtf have u looked up")
+}
+
 
 $s2.Speak($message)
 [console]::beep(1000,500), [console]::beep(2000,200)
