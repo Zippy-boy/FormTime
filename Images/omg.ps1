@@ -347,49 +347,46 @@ $wshell = New-Object -ComObject Wscript.Shell
 $wshell.Popup("INTRUDER DETECTED `nHello $full_name...", 0, "Error", 32 + 4)
 
 
-$s.Speak("Hello $full_name.")
+$s.Speak("Hello $full_name, I have accessed your computer. Your security is weak.")
 
 if ($ram -gt 63) {
-    $s.Speak("You have $ram gigabytes of ram. Really? You dont need that much for watching *THINGS* on the internet $full_name. But a computer this good with no security...")
+$s.Speak("You have $ram gigabytes of ram. But with no security measures in place, it's useless against a skilled hacker like me.")
 }
 elseif ($ram -gt 31) {
-    $s.Speak("You have $ram gigabytes of ram. Decent pc. You dont need that much for watching *THINGS* on the internet $full_name. But a computer this good with no security...")
+$s.Speak("You have $ram gigabytes of ram. Decent, but your lack of security makes it easy for me to infiltrate your system.")
 }
 elseif ($ram -gt 15) {
-    $s.Speak("You have $ram gigabytes of ram. Nice amout to run. If you just play games, perfect. Good for watching *THINGS* on the internet.. But no security...")
+$s.Speak("You have $ram gigabytes of ram. It's enough to run basic programs, but it's not enough to protect you from a determined attacker like me.")
 }
 else {
-    $s.Speak("You have $ram gigabytes of ram. Poor you :(. You wont need this pc then.")
+$s.Speak("You have $ram gigabytes of ram. It's not even enough to run most programs, let alone protect your computer from a hacker like me.")
 }
 
-
-# if pass is bigger or less then 
 if ($pass -gt 6) {
-    $message = "A password thats $passLength characters long. Well done. Your not as dumb as you seem, still pretty dumb."
+$message = "A password thats $passLength characters long. But it's not enough to stop me."
 }
 else {
-    $message = "A password thats $passLength characters long is not secure at all mate. Pretty dumb."
+$message = "A password thats $passLength characters long is not secure at all. It's easy for me to crack."
 }
 
 if ($days -gt 30) {
-    $message = $message + " You have not changed your password in $days days. You should change it. Or i will invite my friends over to your house and we will change it for you...."
+$message = $message + " You have not changed your password in $days days. It's like you're inviting me to hack into your account."
 }
 else {
-    $message = $message + " You have changed your password in $days days. Good job. Guess if you keep this up il have to find a new victim."
+$message = $message + " You have changed your password recently. But it's not enough to stop me from hacking into your account."
 }
 
-$s.Speak("Nice to see your bwower history is somewhat clean")
+$s.Speak("I see your browser history is somewhat clean, but I still managed to find your personal information.")
 
 $s.Speak($message)
 
-$s.Speak("You think i am just making this info up, well think again... I am sure you thought $pass as a password was sucure...")
+$s.Speak("You think I am just making this info up? Think again. I have access to all of your sensitive information.")
 
 $s.Speak("Your public IP address is $ip. I can use it to track your location and find out even more about you.")
 
 $s.Speak("You have a lot of mail in $email. I can use it to steal your identity or scam your friends and family.")
 
-$s.Speak("Want to see something cool?")
-
+$s.Speak("Want to see something scary? I have taken control of your desktop.")
 
 $Image = Gen-Image -Networks $Networks
 Set-WallPaper -Image $Image -Style "Fit"
