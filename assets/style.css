@@ -19,17 +19,6 @@
   font-size: 1rem;
 }
 
-body {
-  /* make lighter version of --bg-color at the bottom of the page */
-  background: linear-gradient(180deg,
-      var(--bg-color) 40%,
-      var(--bg-color) 60%,
-      #0b1a4a 90%);
-  margin: 0;
-  padding: 0;
-  height: min-content(100vh, 100%);
-}
-
 #title {
   font-size: 4.5rem;
   font-weight: bold;
