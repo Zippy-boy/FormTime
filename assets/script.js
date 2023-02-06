@@ -255,6 +255,11 @@ fetch("https://newsapi.org/v2/top-headlines?country=gb&apiKey=dcacaf96d9f9441399
         document.getElementById("news").innerHTML = news;
     });
 
+// delay 30 seconds (30000)
+setTimeout(() => {
+    document.getElementById("title").innerHTML = "";
+}, 30000);
+
 // delay by 10 hours (36000000)
 setTimeout(() => {
     location.reload();
