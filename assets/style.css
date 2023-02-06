@@ -7,7 +7,7 @@
   --button-color: #0d1330;
   --acent-color-1: #6849ff;
   --acent-color-2: #43d4c3;
-  --acent-color-3: #fc4972;
+  --acent-color-3: #4985fc86;
 }
 
 * {
@@ -16,7 +16,7 @@
     Helvetica,
     sans-serif;
   color: var(--text-color);
-  font-size: 1rem;
+  font-size: 0.65rem;
 }
 
 html {
@@ -73,7 +73,7 @@ body {
 }
 
 #title {
-  font-size: 4.5rem;
+  font-size: 5rem;
   font-weight: bold;
   margin-bottom: -4rem;
   margin-top: 0rem;
