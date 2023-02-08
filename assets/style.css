@@ -197,6 +197,14 @@ button {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 1);
 }
 
+button:hover {
+  background: var(--acent-color-3);
+  color: var(--button-text-color);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 1);
+
+
+}
+
 button:active {
   transform: scale(0.95);
 }
@@ -270,9 +278,16 @@ button:active {
   100% {
     opacity: 1;
     transform: scale(1);
-  }  
+  }
 }
 
 /* .wrapper {
   animation: popInToPage 1s ease-in-out;
 } */
+.wrapper {
+  transition: all 0.6s ease-in-out;
+}
+
+.wrapper:hover {
+  transform: scale(1.05);
+}
