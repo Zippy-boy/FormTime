@@ -129,7 +129,7 @@ body {
   /* make it look like its floating */
   box-shadow: #000 0 0 40px;
   text-align: center;
-  display: block;
+  display: none;
   overflow: auto;
   margin: 1.2rem;
 }
@@ -273,6 +273,6 @@ button:active {
   }  
 }
 
-.wrapper {
+/* .wrapper {
   animation: popInToPage 1s ease-in-out;
-}
+} */

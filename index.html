@@ -27,7 +27,7 @@
         <div class="main-flex-container">
 
             <div class="left-container flex-container">
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="WordOfDay">
                     <h2>Word of the day</h2>
                     <p><span id="word-of-day" style="font-size: 1.9rem"></span>
                     </p>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
 
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="BrainTeaser">
                     <h2>Brainteaser</h2>
                     <p><span id="brainteaser-question"></span></p>
                     <p><span id="brainteaser-awser"></span></p>
@@ -46,12 +46,12 @@
                         awnser</button>
                 </div>
                 <!-- ___________________ -->
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="News">
                     <h2>Top news</h2>
                     <p><span id="news"></span></p>
                 </div>
                 <!-- ___________________ -->
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="NameElement">
                     <h2>Name the element</h2>
                     <p><span id="element-symbol"
                             style="font-size: 4rem;"></span></p>
@@ -63,13 +63,13 @@
 
 
             <div class="middle-container flex-container">
-                <div class="wrapper w-large">
+                <div class="wrapper w-large" id="ThisDayInHistory">
                     <h2>This day in history</h2>
                     <h3>On this day in: <span id="history-date"></span></h3>
                     <p><span id="history"></span></p>
                 </div>
 
-                <div class="wrapper w-large">
+                <div class="wrapper w-large" id="WhereInTheWorld">
                     <h2>Where in the world</h2>
                     <p>Can you guess the country (or state)?</p>
                     <div id="country"></div>
@@ -78,28 +78,17 @@
                     <button id="country-button" onclick="showCountry()">Show
                         countey</button>
                 </div>
-                <!-- __________________ -->
-                <div class="wrapper w-large">
+
+                <div class="wrapper w-large" id="RandomQuote">
                     <h2>Random Quote</h2>
                     <p>Quote: <span id="quote"></span></p>
                     <button onclick="newQuote()">New quote</button>
                 </div>
-                <!-- __________________ -->
-                <script async
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5228908604140435"
-                    crossorigin="anonymous"></script>
-                <ins class="adsbygoogle" style="display:block"
-                    data-ad-format="fluid" data-ad-layout-key="-42+dm-1w-hd+103"
-                    data-ad-client="ca-pub-5228908604140435"
-                    data-ad-slot="2582430763"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
             </div>
 
 
             <div class="right-container flex-container">
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="JokeOfDay">
                     <h2>Joke of the day</h2>
                     <p><span id="joke"></span></p>
                     <div id="joke-awnser"></div>
@@ -107,14 +96,14 @@
 
                 </div>
 
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="DidYouKnow">
                     <h2>Did you know?</h2>
                     <p id="did-you-know"></p>
                     <button id="DYK-button" onclick="newFact()">New
                         fact</button>
                 </div>
 
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="MentalMaths">
                     <h2>Mental Maths</h2>
                     <p>Question: <span id="maths-question"></span></p>
                     <div id="answer">
@@ -123,7 +112,7 @@
                         onclick="showAnswer()">Awnser</button>
                 </div>
 
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="WordScramble">
                     <h2>Word scramble</h2>
                     <p>Unscramble the word: <span id="scramble-word"></span></p>
                     <span id="scramble-awnser"></span>
