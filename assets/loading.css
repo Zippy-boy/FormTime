@@ -53,6 +53,16 @@ border-radius: 10px;
     padding: 10px;
 }
 
+@keyframes loadIn {
+    0% {
+        background-color: gray;
+    }    
+
+    100% {
+        background-color: green;
+    }
+}
+
 .wrapper-loaded {
     /* set font size and text alignment */
     font-size: 2rem;
@@ -60,7 +70,7 @@ border-radius: 10px;
 
     /* add a border and background color */
     border-radius: 20px;
-    background-color: green;
+    /* background-color: green; */
 
     /* add a box shadow to give the appearance of floating */
     box-shadow: #000 0 0 40px;
@@ -68,4 +78,5 @@ border-radius: 10px;
     /* add margin and padding for spacing */
     margin: 1.2rem;
     padding: 10px;
+    animation: loadIn 0.5s ease-in-out;
 }

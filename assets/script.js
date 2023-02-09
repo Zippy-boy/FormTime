@@ -61,6 +61,7 @@ const newQuote = () => {
     // make it visible
     wrapper.style.display = "block";
     wrapper.style.animation = "popInToPage 1s ease-in-out";
+    wrapper.setAttribute("data-loaded", "true")
 }
 newQuote();
 
