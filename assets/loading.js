@@ -48,7 +48,7 @@ function checkDataLoaded() {
 let intervalId = setInterval(function () {
     checkDataLoaded();
     console.log({ loadedCount })
-    if (loadedCount === wrapperDivs.length || count++ > 20 ) {
+    if (loadedCount === wrapperDivs.length || count++ > 50 ) {
             setTimeout(function () {
             allLoaded = true;
             console.log("all loaded");
