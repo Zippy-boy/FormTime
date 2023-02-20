@@ -322,6 +322,7 @@ fetch("https://newsapi.org/v2/top-headlines?country=gb&apiKey=dcacaf96d9f9441399
     .then(response => response.json())
     .then(data => {
         let articles = data.articles;
+        console.log(articles)
         let top3 = articles.slice(0, 3);
         let news = "";
         top3.forEach(article => {
