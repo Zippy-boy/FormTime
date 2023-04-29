@@ -12,19 +12,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/style.css" type="text/css" />
     <link rel="icon" href="assets/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="assets/loading.css">
     <title>Form time ideas</title>
-    <script async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5228908604140435"
-        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="main">
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="main" style="display: none;">
         <h1 id="title">Form time ideas</h1>
+        <!-- <div class="content">
+                    <h1>Sliding Diagonals Background Effect</h1>
+                </div> -->
         <div class="main-flex-container">
 
             <div class="left-container flex-container">
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="WordOfDay" data-loaded="false">
                     <h2>Word of the day</h2>
                     <p><span id="word-of-day" style="font-size: 1.9rem"></span>
                     </p>
@@ -35,21 +39,22 @@
                     </div>
                 </div>
 
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="BrainTeaser"
+                    data-loaded="fales">
                     <h2>Brainteaser</h2>
                     <p><span id="brainteaser-question"></span></p>
                     <p><span id="brainteaser-awser"></span></p>
                     <button id="brainteaser-button" onclick="showAwnser()">Show
                         awnser</button>
                 </div>
-
-                <div class="wrapper w-small">
-                    <h2>Random Quote</h2>
-                    <p>Quote: <span id="quote"></span></p>
-                    <button onclick="newQuote()">New quote</button>
+                <!-- ___________________ -->
+                <div class="wrapper w-small" id="News" data-loaded="fales">
+                    <h2>Top news</h2>
+                    <p><span id="news"></span></p>
                 </div>
-
-                <div class="wrapper w-small">
+                <!-- ___________________ -->
+                <div class="wrapper w-small" id="NameElement"
+                    data-loaded="fales">
                     <h2>Name the element</h2>
                     <p><span id="element-symbol"
                             style="font-size: 4rem;"></span></p>
@@ -61,15 +66,17 @@
 
 
             <div class="middle-container flex-container">
-                <div class="wrapper w-large">
+                <div class="wrapper w-large" id="ThisDayInHistory"
+                    data-loaded="fales">
                     <h2>This day in history</h2>
                     <h3>On this day in: <span id="history-date"></span></h3>
                     <p><span id="history"></span></p>
                 </div>
 
-                <div class="wrapper w-large">
+                <div class="wrapper w-large" id="WhereInTheWorld"
+                    data-loaded="fales">
                     <h2>Where in the world</h2>
-                    <p>Can you guess the country?</p>
+                    <p>Can you guess the country (or state)?</p>
                     <div id="country"></div>
                     <div id="countryShow">
                     </div>
@@ -77,26 +84,17 @@
                         countey</button>
                 </div>
 
-                <div class="wrapper w-large">
-                    <h2>Top news</h2>
-                    <p><span id="news"></span></p>
+                <div class="wrapper w-large" id="RandomQuote"
+                    data-loaded="fales">
+                    <h2>Random Quote</h2>
+                    <p>Quote: <span id="quote"></span></p>
+                    <button onclick="newQuote()">New quote</button>
                 </div>
-
-                <script async
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5228908604140435"
-                    crossorigin="anonymous"></script>
-                <ins class="adsbygoogle" style="display:block"
-                    data-ad-format="fluid" data-ad-layout-key="-42+dm-1w-hd+103"
-                    data-ad-client="ca-pub-5228908604140435"
-                    data-ad-slot="2582430763"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
             </div>
 
 
             <div class="right-container flex-container">
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="JokeOfDay" data-loaded="false">
                     <h2>Joke of the day</h2>
                     <p><span id="joke"></span></p>
                     <div id="joke-awnser"></div>
@@ -104,14 +102,16 @@
 
                 </div>
 
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="DidYouKnow"
+                    data-loaded="false">
                     <h2>Did you know?</h2>
                     <p id="did-you-know"></p>
                     <button id="DYK-button" onclick="newFact()">New
                         fact</button>
                 </div>
 
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="MentalMaths"
+                    data-loaded="false">
                     <h2>Mental Maths</h2>
                     <p>Question: <span id="maths-question"></span></p>
                     <div id="answer">
@@ -120,7 +120,8 @@
                         onclick="showAnswer()">Awnser</button>
                 </div>
 
-                <div class="wrapper w-small">
+                <div class="wrapper w-small" id="WordScramble"
+                    data-loaded="false">
                     <h2>Word scramble</h2>
                     <p>Unscramble the word: <span id="scramble-word"></span></p>
                     <span id="scramble-awnser"></span>
@@ -131,9 +132,15 @@
         </div>
 
     </div>
+    <div class="loader" style="display: block;">
+        <div id="readyLoader" style="font-size: 2rem;">
+
+        </div>
     </div>
 
+
     <script src="assets/script.js"></script>
+    <script src="assets/loading.js"></script>
 </body>
 
 </html>

