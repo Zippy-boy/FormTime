@@ -20,6 +20,8 @@ const quotes = [
     "“The battles that count aren’t the ones for gold medals. The struggles within yourself—the invisible battles inside all of us—that’s where it’s at.” —Jesse Owens",
 ]
 
+
+
 function newCountry() {
     fetch("./assets/json/contries.json")
         .then(response => response.json())
@@ -33,6 +35,12 @@ function newCountry() {
             document.getElementById("countryShow").style.display = "None";
             document.getElementById("countryShow").innerHTML = "<h2>" + country + "</h2>";
             document.getElementById("country-button").setAttribute("onclick", "showCountry()");
+
+            wrapper = document.getElementById("WhereInTheWorld")
+            wrapper.setAttribute("data-loaded", "true")
+
+            wrapper.style.display = "block";
+            wrapper.style.animation = "popInToPage 1s ease-in-out";
         });
 }
 
@@ -46,6 +54,14 @@ const showCountry = () => {
 
 const newQuote = () => {
     document.getElementById("quote").innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+
+
+
+    wrapper = document.getElementById("RandomQuote")
+    // make it visible
+    wrapper.style.display = "block";
+    wrapper.style.animation = "popInToPage 1s ease-in-out";
+    wrapper.setAttribute("data-loaded", "true")
 }
 newQuote();
 
@@ -70,6 +86,14 @@ const mentalMath = () => {
     document.getElementById("maths-question").innerHTML = question;
     document.getElementById("maths-button").innerHTML = "Answer";
     document.getElementById("maths-button").setAttribute("onclick", "showAnswer()");
+
+
+
+    wrapper = document.getElementById("MentalMaths")
+    // make it visible
+    wrapper.style.display = "block";
+    wrapper.style.animation = "popInToPage 1s ease-in-out";
+    wrapper.setAttribute("data-loaded", "true")
 }
 
 mentalMath();
@@ -100,6 +124,12 @@ const newElement = () => {
     document.getElementById("element-button").innerHTML = "Show name";
     document.getElementById("element-button").setAttribute("onclick", "showElement()");
 
+
+    
+    wrapper = document.getElementById("NameElement")
+    wrapper.style.display = "block";
+    wrapper.style.animation = "popInToPage 1s ease-in-out";
+    wrapper.setAttribute("data-loaded", "true");
 }
 
 newElement();
@@ -126,6 +156,14 @@ fetch(`https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${d
         let eventText = randomEvent.text;
         document.getElementById("history-date").innerHTML = eventYear;
         document.getElementById("history").innerHTML = "<p>" + eventText + "</p>";
+
+ 
+
+        wrapper = document.getElementById("ThisDayInHistory")
+        // make it visible
+        wrapper.style.display = "block";
+        wrapper.style.animation = "popInToPage 1s ease-in-out";
+        wrapper.setAttribute("data-loaded", "true");
     });
 
 // Clean https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?blacklistFlags=nsfw,religious,racist,sexist,explicit
@@ -147,7 +185,15 @@ const newJoke = () => {
                 document.getElementById("joke-awnser").style.display = "none";
                 document.getElementById("joke-awnser").innerHTML = "<p>" + delivery + "</p>";
                 document.getElementById("joke-button-div").innerHTML = "<button onclick='showJoke()'>Show joke</button>";
-            }
+            } 
+
+
+
+            wrapper = document.getElementById("JokeOfDay")
+            // make it visible
+            wrapper.style.display = "block";
+            wrapper.style.animation = "popInToPage 1s ease-in-out";
+            wrapper.setAttribute("data-loaded", "true");
         });
 }
 newJoke()
@@ -169,6 +215,14 @@ const newFact = () => {
         .then(data => {
             let fact = data[0].fact;
             document.getElementById("did-you-know").innerHTML = fact;
+
+
+
+            wrapper = document.getElementById("DidYouKnow")
+            // make it visible
+            wrapper.style.display = "block";
+            wrapper.style.animation = "popInToPage 1s ease-in-out";
+            wrapper.setAttribute("data-loaded", "true");
         });
 }
 newFact();
@@ -181,6 +235,14 @@ fetch("https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=khcwemcse29tu1
         document.getElementById("word-of-day").innerHTML = word
         document.getElementById("def").style.display = "none";
         document.getElementById("def").innerHTML = "<p>" + definition + "</p>";
+
+
+
+        wrapper = document.getElementById("WordOfDay")
+        // make it visible
+        wrapper.style.display = "block";
+        wrapper.style.animation = "popInToPage 1s ease-in-out";
+        wrapper.setAttribute("data-loaded", "true");
     });
 
 const getDef = () => {
@@ -202,6 +264,13 @@ const newBrainteaser = () => {
             document.getElementById("brainteaser-question").innerHTML = teaser;
             document.getElementById("brainteaser-awser").style.display = "none";
             document.getElementById("brainteaser-awser").innerHTML = "A: " + answer;
+
+
+            wrapper = document.getElementById("BrainTeaser")
+            // make it visible
+            wrapper.style.display = "block";
+            wrapper.style.animation = "popInToPage 1s ease-in-out";
+            wrapper.setAttribute("data-loaded", "true");
         });
 }
 newBrainteaser();
@@ -230,6 +299,12 @@ const newScamble = () => {
             document.getElementById("scramble-word").innerHTML = scrammbledWord;
             document.getElementById("scramble-awnser").style.display = "none";
             document.getElementById("scramble-awnser").innerHTML = randomWord;
+
+            wrapper = document.getElementById("WordScramble")
+            // make it visible
+            wrapper.style.display = "block";
+            wrapper.style.animation = "popInToPage 1s ease-in-out";
+            wrapper.setAttribute("data-loaded", "true");
         });
 }
 newScamble();
@@ -247,13 +322,26 @@ fetch("https://newsapi.org/v2/top-headlines?country=gb&apiKey=dcacaf96d9f9441399
     .then(response => response.json())
     .then(data => {
         let articles = data.articles;
+        console.log(articles)
         let top3 = articles.slice(0, 3);
         let news = "";
         top3.forEach(article => {
             news += "<a href='" + article.url + "' target='_blank'><h3>" + article.title + "</h3></a>";
         });
         document.getElementById("news").innerHTML = news;
+
+
+        wrapper = document.getElementById("News")
+        // make it visible
+        wrapper.style.display = "block";
+        wrapper.style.animation = "popInToPage 1s ease-in-out";
+        wrapper.setAttribute("data-loaded", "true");
     });
+
+// delay 30 seconds (30000)
+setTimeout(() => {
+    document.getElementById("title").innerHTML = "";
+}, 30000);
 
 // delay by 10 hours (36000000)
 setTimeout(() => {
