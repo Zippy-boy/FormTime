@@ -338,6 +338,31 @@ fetch("https://newsapi.org/v2/top-headlines?country=gb&apiKey=dcacaf96d9f9441399
         wrapper.setAttribute("data-loaded", "true");
     });
 
+const nextFilm = () => {
+    // grab a radom folder from the films folder
+    fetch("./assets/json/films.json")
+        .then(response => response.json())
+        .then(data => {
+            let randomFilm = data[Math.floor(Math.random() * data.length)];
+            let filmName = randomFilm["name"];
+            let filmYear = randomFilm["year"];
+            let filmPoster = randomFilm["poster"];
+            let filmLink = randomFilm["link"];
+            let filmDescription = randomFilm["description"];
+            document.getElementById("film-name").innerHTML = filmName;
+            document.getElementById("film-year").innerHTML = filmYear;
+            document.getElementById("film-poster").src = filmPoster;
+            document.getElementById("film-link").href = filmLink;
+            document.getElementById("film-description").innerHTML = filmDescription;
+
+            wrapper = document.getElementById("Film")
+            // make it visible
+            wrapper.style.display = "block";
+            wrapper.style.animation = "popInToPage 1s ease-in-out";
+            wrapper.setAttribute("data-loaded", "true");
+        });
+}
+
 // delay 30 seconds (30000)
 setTimeout(() => {
     document.getElementById("title").innerHTML = "";
