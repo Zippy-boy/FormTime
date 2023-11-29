@@ -1,3 +1,5 @@
+
+
 const quotes = [
     "“It is hard to fail but it is worse never to have tried to succeed.” —Theodore Roosevelt",
     "“That which does not kill us makes us stronger.” —Friedrich Nietzsche",
@@ -339,29 +341,25 @@ fetch("https://newsapi.org/v2/top-headlines?country=gb&apiKey=dcacaf96d9f9441399
     });
 
 const nextFilm = () => {
-    // grab a radom folder from the films folder
-    fetch("./assets/json/films.json")
-        .then(response => response.json())
+    fetch("./assets/films.txt") 
+        .then(response => response.text())
         .then(data => {
-            let randomFilm = data[Math.floor(Math.random() * data.length)];
-            let filmName = randomFilm["name"];
-            let filmYear = randomFilm["year"];
-            let filmPoster = randomFilm["poster"];
-            let filmLink = randomFilm["link"];
-            let filmDescription = randomFilm["description"];
-            document.getElementById("film-name").innerHTML = filmName;
-            document.getElementById("film-year").innerHTML = filmYear;
-            document.getElementById("film-poster").src = filmPoster;
-            document.getElementById("film-link").href = filmLink;
-            document.getElementById("film-description").innerHTML = filmDescription;
+            let films = data.split("\n");
+            let randomFilm = films[Math.floor(Math.random() * films.length)];
+            console.log(randomFilm);
+        })
+    // Create a reference with an initial file path and name
+    var storage = firebase.storage();
+    var pathReference0 = storage.ref('films/' + randomFilm + '/image_0.jpg');
+    var pathReference1 = storage.ref('films/' + randomFilm + '/image_1.jpg');
+    var pathReference2 = storage.ref('films/' + randomFilm + '/image_2.jpg');
 
-            wrapper = document.getElementById("Film")
-            // make it visible
-            wrapper.style.display = "block";
-            wrapper.style.animation = "popInToPage 1s ease-in-out";
-            wrapper.setAttribute("data-loaded", "true");
-        });
+    let filmsDoc = document.getElementById("film");
+    filmsDoc.innerHTML = "<img id='film-image' scr="+ pathReference0 +" alt='film image' />";
+    // wrapper.setAttribute("data-loaded", "true");
 }
+
+nextFilm();
 
 // delay 30 seconds (30000)
 setTimeout(() => {
@@ -372,3 +370,4 @@ setTimeout(() => {
 setTimeout(() => {
     location.reload();
 }, 36000000);
+

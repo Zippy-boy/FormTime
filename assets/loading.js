@@ -18,7 +18,7 @@ setTimeout(function () {
             loadedCount++;
         }
     }
-    console.log(wrapperDivsClassNames);
+    // console.log(wrapperDivsClassNames);
 }, 100);
 
 // create a function to check the data-loaded attribute
@@ -47,7 +47,7 @@ function checkDataLoaded() {
 // run the checkDataLoaded function every 2 seconds
 let intervalId = setInterval(function () {
     checkDataLoaded();
-    console.log({ loadedCount })
+    // console.log({ loadedCount })
     if (loadedCount === wrapperDivs.length || count++ > 50 ) {
             setTimeout(function () {
             allLoaded = true;
