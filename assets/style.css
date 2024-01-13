@@ -258,9 +258,9 @@ button:active {
   }
 
   .w-large {
-    width: 96%;
+    width: 94%;
     margin-top: 1rem;
-    padding: 1rem;
+    padding: 0.1rem;
     padding-bottom: 1rem;
   }
 
