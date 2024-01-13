@@ -260,7 +260,7 @@ button:active {
   .w-large {
     width: 96%;
     margin-top: 1rem;
-    padding: 0rem;
+    padding: 1rem;
     padding-bottom: 1rem;
   }
 
@@ -290,5 +290,5 @@ button:active {
 }
 
 .wrapper:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
