@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    image: formtime
+    build: .
+    container_name: formtime
+    restart: always
+    ports:
+      - "7484:80"
